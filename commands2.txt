@@ -1,0 +1,39 @@
+ffmpeg -i JJC_0330.MOV -filter "minterpolate='fps=120'" -an -vcodec libx264 -pix_fmt yuv420p JJC_0330.MP4
+
+ffmpeg -i JJC_0468.mp4 -vf "frei0r=glitch0r:.1|.2|.1|0" -pix_fmt yuv422p10le -c:v prores -profile:v 2 JJC_0468-glitch.mov
+
+
+ffmpeg -i JJC_0335.mp4 -vf "frei0r=colordistance" -pix_fmt yuv420p -vcodec libx264 "proc/frei0r-colordistance.mp4"
+
+
+ffmpeg -i JJC_0335.mp4 -vf "frei0r=glitch0r:0.3|0.3|0.6|.3, frei0r=sobel, frei0r=baltan" -pix_fmt yuv420p -vcodec libx264 -r 29.97 "proc/speol.mp4"
+
+ffmpeg -i JJC_0335.mp4 -vf "frei0r=glitch0r:0.01|0.1|0.4|.1, frei0r=vertigo, frei0r=nervous" -pix_fmt yuv420p -vcodec libx264 -r 29.97 "proc/speol.mp4"
+
+ffmpeg -i JJC_0345-glitch-nerv.mov -vf "frei0r=sobel, crop=1024:768" -pix_fmt yuv420p -vcodec libx264 -r 29.97 "org2.mp4"
+
+
+ffmpeg -i JJC_0335.mp4 -vf "frei0r=glitch0r:0.3|0.3|0.6|.3, crop=1024:768" -pix_fmt yuv420p -vcodec libx264 "proc/frei0r-colordistance.mp4"
+
+
+ffmpeg -i input -vf "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720" output
+
+setpts=N/(29.97*TB)
+
+ln -s libavutil.56.dylib libavutil.55.dylib
+
+ln -s libavcodec.58.dylib libavcodec.57.dylib
+
+ln -s libavformat.58.dylib libavformat.57.dylib
+
+flags_available="$(ffmpeg 2>&1)";
+flags_required="--enable-gpl --enable-postproc --enable-swscale --enable-avfilter --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-libx264 --enable-libspeex --enable-shared --enable-pthreads --enable-libopenjpeg --enable-libfaac --enable-nonfree --enable-frei0r";
+for flag in ${flags_required}; do
+     echo "${flags_available}" | grep -sq -- "${flag}"; printf -- "$?\t${flag}\n";
+  done
+
+butterflow -s a=0,b=end,spd=0.08 JJC_0303.MOV --poly-s 1.8 --poly-n 7 -ff gaussian -r 29.97 -v -l -o juice.mp4
+
+ffmpeg -i JJC_0481-nerv.mov -i lucidwhite.png -filter_complex "scale=1024:768:force_original_aspect_ratio=increase,crop=1024:768,overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2,frei0r=sobel" -an -vcodec libx264 -pix_fmt yuv420p led1.mp4
+
+ffmpeg -i input.mp4 -i logo.png -filter_complex "overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -codec:a copy output.mp4

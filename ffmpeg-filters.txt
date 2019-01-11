@@ -1,0 +1,32 @@
+ffmpeg -i Jellies.aiff -filter_complex "[0:a]showwaves=s=1280x720:mpc=cyan,format=yuv422p10le" -map "[v]" -map 0:a output.mov
+
+ffmpeg -i Jellies.aiff -filter_complex "[0:a]aphasemeter=s=1280x720:mpc=cyan,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+ffmpeg -i Jellies.aiff -filter_complex "[0:a]showcqt=size=1280x720:text=0,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+ffmpeg -i Jellies.aiff -filter_complex "[0:a]ahistogram,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+ffmpeg -i Jellies.aiff -filter_complex "[0:a]showwaves=size=1280x720:mode=p2p:scale=lin:colors=0xA9A9A9|0xFDF5E6,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+ffmpeg -i Krushnek.aiff -filter_complex "[0:a]avectorscope=size=1280x720:mode=polar:zoom=10:draw=line,format=yuv420p[v]" -map "[v]" -map 0:a output.mp4
+
+ffmpeg -i *.aiff -filter_complex "[0:a]avectorscope=size=1280x720:mode=polar:zoom=10:draw=line,format=yuv420p[v]" -map "[v]" -map 0:a *.mp4
+
+for i in *.aiff;
+  do name=`echo "${i%.*}"`;
+  echo $name;
+  ffmpeg -i "${i}" -filter_complex "[0:a]avectorscope=size=1920x1080:mode=polar:zoom=9:draw=line,format=yuv420p[v]" -map "[v]" -map 0:a "${name}"-v1.mp4 &&
+  ffmpeg -i "${i}" -filter_complex "[0:a]avectorscope=size=1920x1080:mode=polar:zoom=6:draw=line,format=yuv420p[v]" -map "[v]" -map 0:a "${name}"-v2.mp4 &&
+  ffmpeg -i "${i}" -filter_complex "[0:a]avectorscope=size=1920x1080:mode=lissajous_xy:zoom=3:draw=line,format=yuv420p[v]" -map "[v]" -map 0:a "${name}"-v3.mp4
+  ffmpeg -i "${i}" -filter_complex "[0:a]showcqt=size=1920x1080:text=0,format=yuv420p[v]" -map "[v]" -map 0:a "${name}"-cqt.mp4
+  ffmpeg -i "${i}" -filter_complex "[0:a]showwaves=size=1920x1080:mode=p2p:scale=lin:colors=0xA9A9A9|0xFDF5E6,format=yuv420p[v]" -map "[v]" -map 0:a "${name}"-wvs.mp4
+done
+
+
+for i in *.mov;
+  do name=`echo "${i%.*}"`;
+  echo $name;
+  ffmpeg -i "${i}" -c:v copy -c:a copy "s ${name}".mp4
+done
+
+ffmpeg -i IMG_1843.mp4 -vf "scale=720:720,format=yuv420p" -c:v libx264 -crf 23 -profile:v baseline -level 3.1 -c:a copy -movflags faststart raster.mp4
