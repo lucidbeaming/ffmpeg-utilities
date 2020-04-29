@@ -37,3 +37,15 @@ butterflow -s a=0,b=end,spd=0.08 JJC_0303.MOV --poly-s 1.8 --poly-n 7 -ff gaussi
 ffmpeg -i JJC_0481-nerv.mov -i lucidwhite.png -filter_complex "scale=1024:768:force_original_aspect_ratio=increase,crop=1024:768,overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2,frei0r=sobel" -an -vcodec libx264 -pix_fmt yuv420p led1.mp4
 
 ffmpeg -i input.mp4 -i logo.png -filter_complex "overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -codec:a copy output.mp4
+
+ffmpeg -ss 15 -i DSC_0147.AVI -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,delogo=x=597:y=490:w=279:h=163,minterpolate='fps=29.97',setpts=N/(29.97*TB)" -r 29.97 -t 10 -c:a aac -b:a 192k -c:v libx264 -crf 20 -pix_fmt yuv420p -preset ultrafast vid.mp4
+
+
+ffmpeg -i DSC_0147.AVI -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,delogo=x=597:y=490:w=279:h=163,minterpolate='fps=29.97',setpts=N/(29.97*TB)" -r 29.97 -c:a aac -b:a 192k -c:v libx264 -crf 20 -pix_fmt yuv420p -preset ultrafast vid.mp4
+
+
+ffmpeg -i c4.mov -vf "scale=1728:1080:force_original_aspect_ratio=increase,crop=1434:1080:147:0" -r 29.97 -an -c:v libx264 -crf 18 -pix_fmt yuv420p -preset ultrafast out/c4.mp4
+
+ffmpeg -i "${i}" -vf "scale=1728:1080:force_original_aspect_ratio=increase,crop=1434:1080:147:0" -r 29.97 -an -c:v libx264 -crf 18 -pix_fmt yuv420p -preset ultrafast "out/${name}".mp4
+
+ffmpeg -i c8.mp4 -vf "frei0r=nervous,minterpolate='fps=120',setpts=N/(29.97*TB)" -pix_fmt yuv420p -r 29.97 -vcodec libx264 -crf 18 c8-s.mp4
