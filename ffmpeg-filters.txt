@@ -30,3 +30,8 @@ for i in *.mov;
 done
 
 ffmpeg -i IMG_1843.mp4 -vf "scale=720:720,format=yuv420p" -c:v libx264 -crf 23 -profile:v baseline -level 3.1 -c:a copy -movflags faststart raster.mp4
+
+ffmpeg -i halloween.mov -vf "format=yuv420p" -c:v libx264 -crf 20 -profile:v baseline -level 3.1 -c:a aac -b:a 128k -movflags +faststart -preset veryfast halloween.mp4
+
+ffmpeg -i "${i}" -vf "scale=600:600,format=yuv420p" -filter:a loudnorm -c:v libx264 -crf 20 -profile:v baseline -level 3.1 -c:a aac -b:a 128k -ac 1 -ar 44100 -movflags +faststart "out/${name}".mp4
+

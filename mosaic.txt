@@ -1,0 +1,214 @@
+ffmpeg \
+   -i 1.mp4 \
+   -i 2.mp4 \
+   -i 3.mp4 \
+   -i 4.mp4 \
+   -i 5.mp4 \
+   -i 6.mp4 \
+   -i 7.mp4 \
+   -i 8.mp4 \
+   -i 9.mp4 \
+   -i 10.mp4 \
+   -i 11.mp4 \
+   -i 12.mp4 \
+   -i 13.mp4 \
+   -i 14.mp4 \
+   -i 15.mp4 \
+   -i 16.mp4 \
+   -i 17.mp4 \
+   -i 18.mp4 \
+   -i 19.mp4 \
+   -i 20.mp4 \
+   -i 21.mp4 \
+   -i 22.mp4 \
+   -i 23.mp4 \
+   -i 24.mp4 \
+   -i 25.mp4 \
+   -i 26.mp4 \
+   -i 27.mp4 \
+   -i 28.mp4 \
+   -i 29.mp4 \
+   -i 30.mp4 \
+   -i 31.mp4 \
+   -i 32.mp4 \
+   -i 33.mp4 \
+   -i 34.mp4 \
+   -i 35.mp4 \
+   -i 36.mp4 \
+   -i 37.mp4 \
+   -i 38.mp4 \
+   -i 39.mp4 \
+   -i 40.mp4 \
+   -i 41.mp4 \
+   -i 42.mp4 \
+   -i 43.mp4 \
+   -i 44.mp4 \
+   -i 45.mp4 \
+   -i 46.mp4 \
+   -i 47.mp4 \
+   -i 48.mp4 \
+   -i 49.mp4 \
+   -i 50.mp4 \
+   -i 51.mp4 \
+   -i 52.mp4 \
+   -i 53.mp4 \
+   -i 54.mp4 \
+   -i 55.mp4 \
+   -i 56.mp4 \
+   -i 57.mp4 \
+   -i 58.mp4 \
+   -i 59.mp4 \
+   -i 60.mp4 \
+   -i 61.mp4 \
+   -i 62.mp4 \
+   -i 63.mp4 \
+   -i 64.mp4 \
+   -i 65.mp4 \
+   -i 66.mp4 \
+   -i 67.mp4 \
+   -i 68.mp4 \
+   -i 69.mp4 \
+   -i 70.mp4 \
+   -i 71.mp4 \
+   -i 72.mp4 \
+   -i 73.mp4 \
+   -i 74.mp4 \
+   -i 75.mp4 \
+   -i 76.mp4 \
+   -i 77.mp4 \
+   -i 78.mp4 \
+   -i 79.mp4 \
+   -i 80.mp4 \
+   -i 81.mp4 \
+   -i 82.mp4 \
+   -i 83.mp4 \
+   -i 84.mp4 \
+   -i 85.mp4 \
+   -i 86.mp4 \
+   -i 87.mp4 \
+   -i 88.mp4 \
+   -i 89.mp4 \
+   -i 90.mp4 \
+   -i 91.mp4 \
+   -i 92.mp4 \
+   -i 93.mp4 \
+   -i 94.mp4 \
+   -i 95.mp4 \
+   -i 96.mp4 \
+   -i 97.mp4 \
+   -i 98.mp4 \
+   -i 99.mp4 \
+   -i 100.mp4 \
+
+  -filter_complex " \
+      [0:v] setpts=PTS-STARTPTS, scale=192:108 [a0]; \
+      [1:v] setpts=PTS-STARTPTS, scale=192:108 [a1]; \
+      [2:v] setpts=PTS-STARTPTS, scale=192:108 [a2]; \
+      [3:v] setpts=PTS-STARTPTS, scale=192:108 [a3]; \
+      [4:v] setpts=PTS-STARTPTS, scale=192:108 [a4]; \
+      [5:v] setpts=PTS-STARTPTS, scale=192:108 [a5]; \
+      [6:v] setpts=PTS-STARTPTS, scale=192:108 [a6]; \
+      [7:v] setpts=PTS-STARTPTS, scale=192:108 [a7]; \
+      [8:v] setpts=PTS-STARTPTS, scale=192:108 [a8]; \
+      [9:v] setpts=PTS-STARTPTS, scale=192:108 [a9]; \
+      [10:v] setpts=PTS-STARTPTS, scale=192:108 [a10]; \
+      [11:v] setpts=PTS-STARTPTS, scale=192:108 [a111]; \
+      [12:v] setpts=PTS-STARTPTS, scale=192:108 [a2]; \
+      [13:v] setpts=PTS-STARTPTS, scale=192:108 [a13]; \
+      [14:v] setpts=PTS-STARTPTS, scale=192:108 [a14]; \
+      [15:v] setpts=PTS-STARTPTS, scale=192:108 [a15]; \
+      [16:v] setpts=PTS-STARTPTS, scale=192:108 [a16]; \
+      [17:v] setpts=PTS-STARTPTS, scale=192:108 [a17]; \
+      [18:v] setpts=PTS-STARTPTS, scale=192:108 [a18]; \
+      [19:v] setpts=PTS-STARTPTS, scale=192:108 [a19]; \
+      [20:v] setpts=PTS-STARTPTS, scale=192:108 [a20]; \
+      [21:v] setpts=PTS-STARTPTS, scale=192:108 [a21]; \
+      [22:v] setpts=PTS-STARTPTS, scale=192:108 [a22]; \
+      [23:v] setpts=PTS-STARTPTS, scale=192:108 [a23]; \
+      [24:v] setpts=PTS-STARTPTS, scale=192:108 [a24]; \
+      [25:v] setpts=PTS-STARTPTS, scale=192:108 [a25]; \
+      [26:v] setpts=PTS-STARTPTS, scale=192:108 [a26]; \
+      [27:v] setpts=PTS-STARTPTS, scale=192:108 [a27]; \
+      [28:v] setpts=PTS-STARTPTS, scale=192:108 [a28]; \
+      [29:v] setpts=PTS-STARTPTS, scale=192:108 [a29]; \
+      [30:v] setpts=PTS-STARTPTS, scale=192:108 [a30]; \
+      [31:v] setpts=PTS-STARTPTS, scale=192:108 [a31]; \
+      [32:v] setpts=PTS-STARTPTS, scale=192:108 [a32]; \
+      [33:v] setpts=PTS-STARTPTS, scale=192:108 [a33]; \
+      [34:v] setpts=PTS-STARTPTS, scale=192:108 [a34]; \
+      [35:v] setpts=PTS-STARTPTS, scale=192:108 [a35]; \
+      [36:v] setpts=PTS-STARTPTS, scale=192:108 [a36]; \
+      [37:v] setpts=PTS-STARTPTS, scale=192:108 [a37]; \
+      [38:v] setpts=PTS-STARTPTS, scale=192:108 [a38]; \
+      [39:v] setpts=PTS-STARTPTS, scale=192:108 [a39]; \
+      [40:v] setpts=PTS-STARTPTS, scale=192:108 [a40]; \
+      [41:v] setpts=PTS-STARTPTS, scale=192:108 [a41]; \
+      [42:v] setpts=PTS-STARTPTS, scale=192:108 [a42]; \
+      [43:v] setpts=PTS-STARTPTS, scale=192:108 [a43]; \
+      [44:v] setpts=PTS-STARTPTS, scale=192:108 [a44]; \
+      [45:v] setpts=PTS-STARTPTS, scale=192:108 [a45]; \
+      [46:v] setpts=PTS-STARTPTS, scale=192:108 [a46]; \
+      [47:v] setpts=PTS-STARTPTS, scale=192:108 [a47]; \
+      [48:v] setpts=PTS-STARTPTS, scale=192:108 [a48]; \
+      [49:v] setpts=PTS-STARTPTS, scale=192:108 [a49]; \
+      [50:v] setpts=PTS-STARTPTS, scale=192:108 [a50]; \
+      [51:v] setpts=PTS-STARTPTS, scale=192:108 [a51]; \
+      [52:v] setpts=PTS-STARTPTS, scale=192:108 [a52]; \
+      [53:v] setpts=PTS-STARTPTS, scale=192:108 [a53]; \
+      [54:v] setpts=PTS-STARTPTS, scale=192:108 [a54]; \
+      [55:v] setpts=PTS-STARTPTS, scale=192:108 [a55]; \
+      [56:v] setpts=PTS-STARTPTS, scale=192:108 [a56]; \
+      [57:v] setpts=PTS-STARTPTS, scale=192:108 [a57]; \
+      [58:v] setpts=PTS-STARTPTS, scale=192:108 [a58]; \
+      [59:v] setpts=PTS-STARTPTS, scale=192:108 [a59]; \
+      [60:v] setpts=PTS-STARTPTS, scale=192:108 [a60]; \
+      [61:v] setpts=PTS-STARTPTS, scale=192:108 [a61]; \
+      [62:v] setpts=PTS-STARTPTS, scale=192:108 [a62]; \
+      [63:v] setpts=PTS-STARTPTS, scale=192:108 [a63]; \
+      [64:v] setpts=PTS-STARTPTS, scale=192:108 [a64]; \
+      [65:v] setpts=PTS-STARTPTS, scale=192:108 [a65]; \
+      [66:v] setpts=PTS-STARTPTS, scale=192:108 [a66]; \
+      [67:v] setpts=PTS-STARTPTS, scale=192:108 [a67]; \
+      [68:v] setpts=PTS-STARTPTS, scale=192:108 [a68]; \
+      [69:v] setpts=PTS-STARTPTS, scale=192:108 [a69]; \
+      [70:v] setpts=PTS-STARTPTS, scale=192:108 [a70]; \
+      [71:v] setpts=PTS-STARTPTS, scale=192:108 [a71]; \
+      [72:v] setpts=PTS-STARTPTS, scale=192:108 [a72]; \
+      [73:v] setpts=PTS-STARTPTS, scale=192:108 [a73]; \
+      [74:v] setpts=PTS-STARTPTS, scale=192:108 [a74]; \
+      [75:v] setpts=PTS-STARTPTS, scale=192:108 [a75]; \
+      [76:v] setpts=PTS-STARTPTS, scale=192:108 [a76]; \
+      [77:v] setpts=PTS-STARTPTS, scale=192:108 [a77]; \
+      [78:v] setpts=PTS-STARTPTS, scale=192:108 [a78]; \
+      [79:v] setpts=PTS-STARTPTS, scale=192:108 [a79]; \
+      [80:v] setpts=PTS-STARTPTS, scale=192:108 [a80]; \
+      [81:v] setpts=PTS-STARTPTS, scale=192:108 [a81]; \
+      [82:v] setpts=PTS-STARTPTS, scale=192:108 [a82]; \
+      [83:v] setpts=PTS-STARTPTS, scale=192:108 [a83]; \
+      [84:v] setpts=PTS-STARTPTS, scale=192:108 [a84]; \
+      [85:v] setpts=PTS-STARTPTS, scale=192:108 [a85]; \
+      [86:v] setpts=PTS-STARTPTS, scale=192:108 [a86]; \
+      [87:v] setpts=PTS-STARTPTS, scale=192:108 [a87]; \
+      [88:v] setpts=PTS-STARTPTS, scale=192:108 [a88]; \
+      [89:v] setpts=PTS-STARTPTS, scale=192:108 [a89]; \
+      [90:v] setpts=PTS-STARTPTS, scale=192:108 [a90]; \
+      [91:v] setpts=PTS-STARTPTS, scale=192:108 [a91]; \
+      [92:v] setpts=PTS-STARTPTS, scale=192:108 [a92]; \
+      [93:v] setpts=PTS-STARTPTS, scale=192:108 [a93]; \
+      [94:v] setpts=PTS-STARTPTS, scale=192:108 [a94]; \
+      [95:v] setpts=PTS-STARTPTS, scale=192:108 [a95]; \
+      [96:v] setpts=PTS-STARTPTS, scale=192:108 [a96]; \
+      [97:v] setpts=PTS-STARTPTS, scale=192:108 [a97]; \
+      [98:v] setpts=PTS-STARTPTS, scale=192:108 [a98]; \
+      [99:v] setpts=PTS-STARTPTS, scale=192:108 [a99]; \
+      [a0][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12][a13][a14][a15][a16][a17][a18][a19][a20][a21][a22][a23][a24][a25][a26][a27][a28][a29][a30][a31][a32][a33][a34][a35][a36][a37][a38][a39][a40][a41][a42][a43][a44][a45][a46][a47][a48][a49][a50][a51][a52][a53][a54][a55][a56][a57][a58][a59][a60][a61][a62][a63][a64][a65][a66][a67][a68][a69][a70][a71][a72][a73][a74][a75][a76][a77][a78][a79][a80][a81][a82][a83][a84][a85][a86][a87][a88][a89][a90][a91][a92][a93][a94][a95][a96][a97][a98][a99]xstack=inputs=100:layout=0_0|w0_0|w0+w1_0|w0+w1+w2_0|w0+w1+w2+w3_0|w0+w1+w2+w3+w4_0|w0+w1+w2+w3+w4+w5_0|w0+w1+w2+w3+w4+w5+w6_0|w0+w1+w2+w3+w4+w5+w6+w7_0|w0+w1+w2+w3+w4+w5+w6+w7+w8_0|0_h0|w0_h0|w0+w1_h0|w0+w1+w2_h0|w0+w1+w2+w3_h0|w0+w1+w2+w3+w4_h0|w0+w1+w2+w3+w4+w5_h0|w0+w1+w2+w3+w4+w5+w6_h0|w0+w1+w2+w3+w4+w5+w6+w7_h0|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0|0_h0+h1|w0_h0+h1|w0+w1_h0+h1|w0+w1+w2_h0+h1|w0+w1+w2+w3_h0+h1|w0+w1+w2+w3+w4_h0+h1|w0+w1+w2+w3+w4+w5_h0+h1|w0+w1+w2+w3+w4+w5+w6_h0+h1|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1|0_h0+h1+h2|w0_h0+h1+h2|w0+w1_h0+h1+h2|w0+w1+w2_h0+h1+h2|w0+w1+w2+w3_h0+h1+h2|w0+w1+w2+w3+w4_h0+h1+h2|w0+w1+w2+w3+w4+w5_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2|0_h0+h1+h2|w0_h0+h1+h2|w0+w1_0|w0+w1+w2_h0+h1+h2|w0+w1+w2+w3_h0+h1+h2|w0+w1+w2+w3+w4_h0+h1+h2|w0+w1+w2+w3+w4+w5_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2|0_h0+h1+h2+h3|w0_h0+h1+h2+h3|w0+w1_h0+h1+h2+h3|w0+w1+w2_h0+h1+h2+h3|w0+w1+w2+w3_h0+h1+h2+h3|w0+w1+w2+w3+w4_h0+h1+h2+h3|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3|0_h0+h1+h2+h3+h4|w0_h0+h1+h2+h3+h4|w0+w1_h0+h1+h2+h3+h4|w0+w1+w2_h0+h1+h2+h3+h4|w0+w1+w2+w3_h0+h1+h2+h3+h4|w0+w1+w2+w3+w4_h0+h1+h2+h3+h4|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3+h4|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3+h4|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3+h4|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3+h4|0_h0+h1+h2+h3+h4+h5|w0_h0+h1+h2+h3+h4+h5|w0+w1_h0+h1+h2+h3+h4+h5|w0+w1+w2_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3+w4_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3+h4+h5|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3+h4+h5|0_h0+h1+h2+h3+h4+h5+h6|w0_h0+h1+h2+h3+h4+h5+h6|w0+w1_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3+w4_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3+h4+h5+h6|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3+h4+h5+h6|0_h0+h1+h2+h3+h4+h5+h6+h7|w0_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3+w4_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3+h4+h5+h6+h7|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3+h4+h5+h6+h7|0_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3+w4_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3+w4+w5_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3+w4+w5+w6_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3+w4+w5+w6+w7_h0+h1+h2+h3+h4+h5+h6+h7+h8|w0+w1+w2+w3+w4+w5+w6+w7+w8_h0+h1+h2+h3+h4+h5+h6+h7+h8[outv]; \
+      [0:a][1:a][2:a][3:a][4:a][5:a][6:a][7:a][8:a][9:a][20:a][21:a][22:a][23:a][24:a][25:a][26:a][27:a][28:a][29:a][30:a][31:a][32:a][33:a][34:a][35:a][36:a][37:a][38:a][39:a][40:a][41:a][42:a][43:a][44:a][45:a][46:a][47:a][48:a][49:a][50:a][51:a][52:a][53:a][54:a][55:a][56:a][57:a][58:a][59:a][60:a][61:a][62:a][63:a][64:a][65:a][66:a][67:a][68:a][69:a][70:a][71:a][72:a][73:a][74:a][75:a][76:a][77:a][78:a][79:a][80:a][81:a][82:a][83:a][84:a][85:a][86:a][87:a][88:a][89:a][90:a][91:a][92:a][93:a][94:a][95:a][96:a][97:a][98:a][99:a]amix=inputs=100[outa]
+      " \
+    -map "[outv]" -map "[outa]" \
+      -c:v libx264 -preset fast -crf 20 -c:a aac mosaic.mp4
+
+
+
+ffmpeg -i 1.mp4 -i 2.mp4 -i 3.mp4 -i 4.mp4 -i 5.mp4 -i 6.mp4 -i 7.mp4 -i 8.mp4 -i 9.mp4 -i 10.mp4 -i 11.mp4 -i 12.mp4 -i 13.mp4 -i 14.mp4 -i 15.mp4 -i 16.mp4 -i 17.mp4 -i 18.mp4 -i 19.mp4 -i 20.mp4 -i 21.mp4 -i 22.mp4 -i 23.mp4 -i 24.mp4 -i 25.mp4 -i 26.mp4 -i 27.mp4 -i 28.mp4 -i 29.mp4 -i 30.mp4 -i 31.mp4 -i 32.mp4 -i 33.mp4 -i 34.mp4 -i 35.mp4 -i 36.mp4 -i 37.mp4 -i 38.mp4 -i 39.mp4 -i 40.mp4 -i 41.mp4 -i 42.mp4 -i 43.mp4 -i 44.mp4 -i 45.mp4 -i 46.mp4 -i 47.mp4 -i 48.mp4 -i 49.mp4 -i 50.mp4 -i 51.mp4 -i 52.mp4 -i 53.mp4 -i 54.mp4 -i 55.mp4 -i 56.mp4 -i 57.mp4 -i 58.mp4 -i 59.mp4 -i 60.mp4 -i 61.mp4 -i 62.mp4 -i 63.mp4 -i 64.mp4 -i 65.mp4 -i 66.mp4 -i 67.mp4 -i 68.mp4 -i 69.mp4 -i 70.mp4 -i 71.mp4 -i 72.mp4 -i 73.mp4 -i 74.mp4 -i 75.mp4 -i 76.mp4 -i 77.mp4 -i 78.mp4 -i 79.mp4 -i 80.mp4 -i 81.mp4 -i 82.mp4 -i 83.mp4 -i 84.mp4 -i 85.mp4 -i 86.mp4 -i 87.mp4 -i 88.mp4 -i 89.mp4 -i 90.mp4 -i 91.mp4 -i 92.mp4 -i 93.mp4 -i 94.mp4 -i 95.mp4 -i 96.mp4 -i 97.mp4 -i 98.mp4 -i 99.mp4 -i 100.mp4 -filter_complex "[0:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a0];[1:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a1];[2:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a2];[3:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a3];[4:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a4];[5:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a5];[6:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a6];[7:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a7];[8:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a8];[9:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a9];[10:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a10];[11:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a11];[12:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a12];[13:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a13];[14:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a14];[15:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a15];[16:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a16];[17:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a17];[18:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a18];[19:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a19];[20:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a20];[21:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a21];[22:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a22];[23:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a23];[24:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a24];[25:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a25];[26:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a26];[27:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a27];[28:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a28];[29:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a29];[30:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a30];[31:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a31];[32:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a32];[33:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a33];[34:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a34];[35:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a35];[36:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a36];[37:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a37];[38:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a38];[39:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a39];[40:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a40];[41:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a41];[42:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a42];[43:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a43];[44:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a44];[45:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a45];[46:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a46];[47:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a47];[48:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a48];[49:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a49];[50:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a50];[51:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a51];[52:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a52];[53:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a53];[54:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a54];[55:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a55];[56:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a56];[57:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a57];[58:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a58];[59:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a59];[60:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a60];[61:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a61];[62:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a62];[63:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a63];[64:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a64];[65:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a65];[66:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a66];[67:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a67];[68:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a68];[69:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a69];[70:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a70];[71:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a71];[72:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a72];[73:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a73];[74:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a74];[75:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a75];[76:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a76];[77:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a77];[78:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a78];[79:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a79];[80:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a80];[81:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a81];[82:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a82];[83:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a83];[84:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a84];[85:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a85];[86:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a86];[87:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a87];[88:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a88];[89:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a89];[90:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a90];[91:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a91];[92:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a92];[93:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a93];[94:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a94];[95:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a95];[96:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a96];[97:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a97];[98:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a98];[99:v] setpts=PTS-STARTPTS, scale=384:216:force_original_aspect_ratio=increase,crop=192:108 [a99];[a0][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12][a13][a14][a15][a16][a17][a18][a19][a20][a21][a22][a23][a24][a25][a26][a27][a28][a29][a30][a31][a32][a33][a34][a35][a36][a37][a38][a39][a40][a41][a42][a43][a44][a45][a46][a47][a48][a49][a50][a51][a52][a53][a54][a55][a56][a57][a58][a59][a60][a61][a62][a63][a64][a65][a66][a67][a68][a69][a70][a71][a72][a73][a74][a75][a76][a77][a78][a79][a80][a81][a82][a83][a84][a85][a86][a87][a88][a89][a90][a91][a92][a93][a94][a95][a96][a97][a98][a99]xstack=inputs=100:layout=0_0|192_0|384_0|576_0|768_0|960_0|1152_0|1344_0|1536_0|1728_0|0_108|192_108|384_108|576_108|768_108|960_108|1152_108|1344_108|1536_108|1728_108|0_216|192_216|384_216|576_216|768_216|960_216|1152_216|1344_216|1536_216|1728_216|0_324|192_324|384_324|576_324|768_324|960_324|1152_324|1344_324|1536_324|1728_324|0_432|192_432|384_432|576_432|768_432|960_432|1152_432|1344_432|1536_432|1728_432|0_540|192_540|384_540|576_540|768_540|960_540|1152_540|1344_540|1536_540|1728_540|0_648|192_648|384_648|576_648|768_648|960_648|1152_648|1344_648|1536_648|1728_648|0_756|192_756|384_756|576_756|768_756|960_756|1152_756|1344_756|1536_756|1728_756|0_864|192_864|384_864|576_864|768_864|960_864|1152_864|1344_864|1536_864|1728_864|0_972|192_972|384_972|576_972|768_972|960_972|1152_972|1344_972|1536_972|1728_972[outv];[0:a][1:a][2:a][3:a][4:a][5:a][6:a][7:a][8:a][9:a][20:a][21:a][22:a][23:a][24:a][25:a][26:a][27:a][28:a][29:a][30:a][31:a][32:a][33:a][34:a][35:a][36:a][37:a][38:a][39:a][40:a][41:a][42:a][43:a][44:a][45:a][46:a][47:a][48:a][49:a][50:a][51:a][52:a][53:a][54:a][55:a][56:a][57:a][58:a][59:a][60:a][61:a][62:a][63:a][64:a][65:a][66:a][67:a][68:a][69:a][70:a][71:a][72:a][73:a][74:a][75:a][76:a][77:a][78:a][79:a][80:a][81:a][82:a][83:a][84:a][85:a][86:a][87:a][88:a][89:a][90:a][91:a][92:a][93:a][94:a][95:a][96:a][97:a][98:a][99:a]amix=inputs=100[outa]" -map "[outv]" -map "[outa]"  -c:v libx264 -pix_fmt yuv420p -preset ultrafast -crf 20 -c:a aac mosaic-front.mp4
+
+ffmpeg -i 1.mp4 -i 2.mp4 -i 3.mp4 -i 4.mp4 -i 5.mp4 -i 6.mp4 -i 7.mp4 -i 8.mp4 -i 9.mp4 -i 10.mp4 -i 11.mp4 -i 12.mp4 -i 13.mp4 -i 14.mp4 -i 15.mp4 -i 16.mp4 -i 17.mp4 -i 18.mp4 -i 19.mp4 -i 20.mp4 -i 21.mp4 -i 22.mp4 -i 23.mp4 -i 24.mp4 -i 25.mp4 -filter_complex "[0:v] setpts=PTS-STARTPTS, scale=192:108 [a0];[1:v] setpts=PTS-STARTPTS, scale=192:108 [a1];[2:v] setpts=PTS-STARTPTS, scale=192:108 [a2];[3:v] setpts=PTS-STARTPTS, scale=192:108 [a3];[4:v] setpts=PTS-STARTPTS, scale=192:108 [a4];[5:v] setpts=PTS-STARTPTS, scale=192:108 [a5];[6:v] setpts=PTS-STARTPTS, scale=192:108 [a6];[7:v] setpts=PTS-STARTPTS, scale=192:108 [a7];[8:v] setpts=PTS-STARTPTS, scale=192:108 [a8];[9:v] setpts=PTS-STARTPTS, scale=192:108 [a9];[10:v] setpts=PTS-STARTPTS, scale=192:108 [a10];[11:v] setpts=PTS-STARTPTS, scale=192:108 [a11];[12:v] setpts=PTS-STARTPTS, scale=192:108 [a12];[13:v] setpts=PTS-STARTPTS, scale=192:108 [a13];[14:v] setpts=PTS-STARTPTS, scale=192:108 [a14];[15:v] setpts=PTS-STARTPTS, scale=192:108 [a15];[16:v] setpts=PTS-STARTPTS, scale=192:108 [a16];[17:v] setpts=PTS-STARTPTS, scale=192:108 [a17];[18:v] setpts=PTS-STARTPTS, scale=192:108 [a18];[19:v] setpts=PTS-STARTPTS, scale=192:108 [a19];[20:v] setpts=PTS-STARTPTS, scale=192:108 [a20];[21:v] setpts=PTS-STARTPTS, scale=192:108 [a21];[22:v] setpts=PTS-STARTPTS, scale=192:108 [a22];[23:v] setpts=PTS-STARTPTS, scale=192:108 [a23];[24:v] setpts=PTS-STARTPTS, scale=192:108 [a24];[a0][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12][a13][a14][a15][a16][a17][a18][a19][a20][a21][a22][a23][a24]xstack=inputs=25:layout=0_0|192_0|384_0|576_0|768_0|960_0|1152_0|1344_0|1536_0|1728_0|0_108|192_108|384_108|576_108|768_108|960_108|1152_108|1344_108|1536_108|1728_108|0_216|192_216|384_216|576_216|768_216|960_216|1152_216|1344_216|1536_216|1728_216|0_324|192_324|384_324|576_324|768_324|960_324|1152_324|1344_324|1536_324|1728_324|0_324|192_324|384_0|576_324|768_324|960_324|1152_324|1344_324|1536_324|1728_324|0_432|192_432|384_432|576_432|768_432|960_432|1152_432|1344_432|1536_432|1728_432|0_540|192_540|384_540|576_540|768_540|960_540|1152_540|1344_540|1536_540|1728_540|0_648|192_648|384_648|576_648|768_648|960_648|1152_648|1344_648|1536_648|1728_648|0_756|192_756|384_756|576_756|768_756|960_756|1152_756|1344_756|1536_756|1728_756|0_864|192_864|384_864|576_864|768_864|960_864|1152_864|1344_864|1536_864|1728_864|0_972|192_972|384_972|576_972|768_972|960_972|1152_972|1344_972|1536_972|1728_972[outv];[0:a][1:a][2:a][3:a][4:a][5:a][6:a][7:a][8:a][9:a][20:a][21:a][22:a][23:a][24:a][25:a][26:a][27:a][28:a][29:a][30:a][31:a][32:a][33:a][34:a][35:a][36:a][37:a][38:a][39:a][40:a][41:a][42:a][43:a][44:a][45:a][46:a][47:a][48:a][49:a][50:a][51:a][52:a][53:a][54:a][55:a][56:a][57:a][58:a][59:a][60:a][61:a][62:a][63:a][64:a][65:a][66:a][67:a][68:a][69:a][70:a][71:a][72:a][73:a][74:a][75:a][76:a][77:a][78:a][79:a][80:a][81:a][82:a][83:a][84:a][85:a][86:a][87:a][88:a][89:a][90:a][91:a][92:a][93:a][94:a][95:a][96:a][97:a][98:a][99:a]amix=inputs=100[outa]" -map "[outv]" -map "[outa]"  -c:v libx264 -preset fast -crf 20 -c:a aac -t 00:00:05 mosaic.mp4

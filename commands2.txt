@@ -49,3 +49,5 @@ ffmpeg -i c4.mov -vf "scale=1728:1080:force_original_aspect_ratio=increase,crop=
 ffmpeg -i "${i}" -vf "scale=1728:1080:force_original_aspect_ratio=increase,crop=1434:1080:147:0" -r 29.97 -an -c:v libx264 -crf 18 -pix_fmt yuv420p -preset ultrafast "out/${name}".mp4
 
 ffmpeg -i c8.mp4 -vf "frei0r=nervous,minterpolate='fps=120',setpts=N/(29.97*TB)" -pix_fmt yuv420p -r 29.97 -vcodec libx264 -crf 18 c8-s.mp4
+
+ffmpeg -r 15 -start_number 11231 -i G00%05d.JPG -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -r 29.97 -an -c:v libx264 -crf 18 -pix_fmt yuv420p -preset ultrafast out/ride.mp4
