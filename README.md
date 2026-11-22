@@ -1,8 +1,10 @@
-# ffmpeg-commands
+# ffmpeg-utilities
 
 Real-world ffmpeg commands for transforming video, images and audio, grouped by theme.
 
 Each `.sh` file is a single, copy-paste-ready command or small loop, taken from real projects. The comment header explains what it does and why, what every flag means, which script it came from, and what was changed to bring it up to date. Every ffmpeg example was run against generated test media on ffmpeg 9.0.2.
+
+Each file's `Source:` line names the original script in this repo that the command came from. The originals were removed once converted and are still in the git history.
 
 Most files read `input.mp4` (or `input.mov`, `input.aiff`, `frames/f%05d.jpg`) and write `output.*` in the current folder. Rename the files or edit the paths to fit your project.
 
@@ -90,6 +92,10 @@ Separate tools used alongside ffmpeg in the same projects. These are described, 
 |---|---|
 | [`primitive-png-to-svg.sh`](related-tools/primitive-png-to-svg.sh) | Redraw images as SVGs made of simple shapes, with primitive |
 | [`videogrep-supercut.sh`](related-tools/videogrep-supercut.sh) | Transcribe videos and cut a supercut of every time a word is spoken |
+
+## Notes
+
+[`notes/`](notes/) holds command notes that haven't been converted into examples yet: frei0r glitch chains, `delogo`, ProRes 4444 with alpha from SVG frames, more audio visualizers (`showcqt`, `aphasemeter`, `ahistogram`) and a 40-input mosaic.
 
 ## Requirements
 
