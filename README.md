@@ -96,3 +96,7 @@ Separate tools used alongside ffmpeg in the same projects. These are described, 
 - ffmpeg with libx264, libtheora and libvorbis.
 - The `effects/` examples that use `frei0r=…` need an ffmpeg built with frei0r (for example the `ffmpeg-full` Homebrew formula). If ffmpeg reports "Could not find module", set `FREI0R_PATH` to the plugin folder (`/opt/homebrew/lib/frei0r-1` with Homebrew on Apple Silicon).
 - The ProRes examples use ffmpeg's built-in `prores` / `prores_ks` encoders.
+
+## License
+
+Licensed under the [GNU General Public License v3.0 or later](LICENSE).
