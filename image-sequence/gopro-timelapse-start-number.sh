@@ -23,7 +23,6 @@
 # Source:  ffmpeg-utilities/notes/commands2.txt
 # Changed: -r 15 before -i → -framerate 15 (the image reader's own option)
 # Tested:  ffmpeg 9.0.2
-# Test-setup: for n in $(seq 11231 11260); do ffmpeg -loglevel error -f lavfi -i testsrc2=size=640x480 -frames:v 1 G00$n.JPG; done; rm -rf frames input.*
 
 ffmpeg -framerate 15 -start_number 11231 -i G00%05d.JPG \
   -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" \

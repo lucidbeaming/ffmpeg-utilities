@@ -26,7 +26,6 @@
 # Source:  ffmpeg-utilities/videogrep.sh (the feart-ant command)
 # Changed: -filter_complex → -vf; -filter:a → -af
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 ffmpeg -ss 21 -i input.mp4 \
   -vf "random=frames=5,tblend=all_mode=difference,normalize=blackpt=black:whitept=white:smoothing=0,minterpolate=fps=100:scd=none,setpts=N/(29.97*TB),scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,unsharp" \

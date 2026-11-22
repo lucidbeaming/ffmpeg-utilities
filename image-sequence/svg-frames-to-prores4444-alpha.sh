@@ -31,7 +31,6 @@
 #          ImageMagick step for ffmpeg builds without librsvg; -r 15 before
 #          -i → -framerate 15
 # Tested:  ffmpeg 9.0.2, ImageMagick 7
-# Test-setup: for n in $(seq -w 1 10); do printf '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180"><circle cx="%d" cy="90" r="40" fill="#e33"/></svg>' $((30+10#$n*25)) > 000$n.svg; done; rm -rf frames input.*
 
 shopt -s nullglob
 mkdir -p png

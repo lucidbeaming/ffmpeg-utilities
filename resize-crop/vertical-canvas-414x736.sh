@@ -20,7 +20,6 @@
 #          sources that carry a rotation flag, so transpose alone yields
 #          an upright frame. fps=fps=30 → fps=30.
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 ffmpeg -ss 60 -t 7.9 -i input.mp4 \
   -vf "transpose=2,scale=414:736,fps=30" \
