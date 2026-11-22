@@ -18,7 +18,6 @@
 #          filtergraph builds the palette from the frames actually used and
 #          leaves no temporary file behind.
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 ffmpeg -ss 5 -t 20 -i input.mp4 \
   -filter_complex "fps=0.5,split[a][b];[a]palettegen[p];[b][p]paletteuse" \

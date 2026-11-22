@@ -24,7 +24,6 @@
 # Changed: the eight commands became one loop; the "aombc" label typo →
 #          "aobmc"; reads input.mp4 instead of $1
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 settings=(
   "default:"

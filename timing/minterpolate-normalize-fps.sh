@@ -17,7 +17,6 @@
 # Source:  ffmpeg-utilities/videogrep.sh (the hrdst command)
 # Changed: -filter_complex → -vf (single-input chain)
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: hd
 
 ffmpeg -i input.mp4 \
   -vf "crop=640:480,minterpolate=fps=29.97:scd=none,setpts=N/(29.97*TB)" \

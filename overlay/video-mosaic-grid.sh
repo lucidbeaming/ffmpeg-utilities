@@ -31,8 +31,6 @@
 #          and an amix that listed only 90 of its 100 inputs. The layout
 #          now uses xstack grid= in place of 100 hand-written positions.
 # Tested:  ffmpeg 9.0.2 (with a 2×2 grid)
-# Test-env: COLS=2 ROWS=2
-# Test-setup: for n in 1 2 3 4; do ffmpeg -loglevel error -f lavfi -i testsrc2=size=320x240:rate=30:duration=3 -f lavfi -i sine=frequency=$((200*n)):duration=3 -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest $n.mp4; done; rm -f input.mp4 input.mov
 
 COLS=${COLS:-10}
 ROWS=${ROWS:-10}

@@ -25,7 +25,6 @@
 #          and the full file)
 # Changed: minterpolate='fps=29.97' → minterpolate=fps=29.97
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 ffmpeg -ss 15 -i input.mp4 \
   -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,delogo=x=597:y=490:w=279:h=163,minterpolate=fps=29.97,setpts=N/(29.97*TB)" \

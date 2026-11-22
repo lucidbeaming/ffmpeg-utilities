@@ -20,8 +20,6 @@
 #          glitched, nervous-processed clip)
 # Changed: -vcodec → -c:v; removed the space after the comma
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: hd
-# Test-setup: ffmpeg -loglevel error -y -f lavfi -i testsrc2=size=1920x1080:rate=30:duration=2 -f lavfi -i sine=d=2 -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest input.mp4
 
 ffmpeg -i input.mp4 \
   -vf "frei0r=sobel,crop=1024:768" \

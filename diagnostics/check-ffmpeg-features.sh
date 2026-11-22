@@ -18,7 +18,6 @@
 #          are long gone or renamed. This version checks what the examples
 #          actually call.
 # Tested:  ffmpeg 9.0.2
-# Test-expect: no-output
 
 encoders=(libx264 aac libtheora libvorbis prores prores_ks mpeg4)
 filters=(minterpolate frei0r normalize tblend tmix shuffleframes random

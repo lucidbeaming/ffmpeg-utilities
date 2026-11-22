@@ -15,7 +15,6 @@
 #          over the same filename; -frames:v 1 writes exactly one.
 #          -s 600x600 → -vf scale=600:600; added -q:v 2.
 # Tested:  ffmpeg 9.0.2
-# Test-fixture: long
 
 ffmpeg -ss 7 -i input.mp4 \
   -frames:v 1 \
