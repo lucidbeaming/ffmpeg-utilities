@@ -1,1 +1,59 @@
+# macOS (github/gitignore Global/macOS.gitignore)
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.swp
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Media written by running the examples inside the repo.
+# This repo holds commands, not media. Images are only ignored under the
+# output names below, so sample assets (e.g. a dither palette PNG) can
+# still be committed.
+*.mp4
+*.m4v
+*.mov
+*.avi
+*.mkv
+*.webm
+*.ogv
+*.gif
+*.aif
+*.aiff
+*.wav
+*.mp3
+*.m4a
+output.*
+*-output.*
+out/
+frames/
+svg/
