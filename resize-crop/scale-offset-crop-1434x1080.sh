@@ -14,6 +14,9 @@
 #   -c:v libx264 -crf 18 -preset ultrafast -pix_fmt yuv420p
 #                          fast, high-quality H.264
 #
+# Also in notes/commands2.txt: this command, verbatim, for single files
+# and in a loop.
+#
 # Source:  ffmpeg-utilities/ntsc.sh
 # Tested:  ffmpeg 9.0.2
 

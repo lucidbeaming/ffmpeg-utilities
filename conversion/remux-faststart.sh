@@ -9,6 +9,9 @@
 #   -c copy               copy every stream, no re-encode
 #   -movflags +faststart  write the moov atom at the start of the file
 #
+# Also in notes/ffmpeg-filters.txt: the same remux without +faststart, in a
+# *.mov loop. Keep +faststart for anything played on the web.
+#
 # Source:  ffmpeg-utilities/faststart.sh (same command in vector.sh,
 #          vector 2.sh, vector 3.sh, vector 4.sh)
 # Changed: -c:v copy -c:a copy → -c copy; faststart → +faststart

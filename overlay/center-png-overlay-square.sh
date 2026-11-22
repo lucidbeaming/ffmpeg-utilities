@@ -15,6 +15,9 @@
 #                          high-quality H.264
 #   -movflags +faststart   web playback starts sooner
 #
+# Also in notes/commands2.txt: the minimal form with no resize, just
+# -filter_complex "overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -c:a copy.
+#
 # Source:  ffmpeg-utilities/overlay.sh (identical to png-overlay.sh)
 # Changed: explicit [0:v]/[1:v] stream labels; W/H shorthand for main_w/
 #          main_h; -acodec/-vcodec → -c:a/-c:v
