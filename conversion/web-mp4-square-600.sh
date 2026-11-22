@@ -17,6 +17,9 @@
 #                          AAC, 128 kb/s, mono, 44.1 kHz
 #   -movflags +faststart   playback can start before the download finishes
 #
+# Also in notes/ffmpeg-filters.txt: this exact command inside a loop. For
+# a same-size encode, see web-mp4-baseline-keep-size.sh.
+#
 # Source:  ffmpeg-utilities/ogg-mp4-jpg-600.sh (also vector copy.sh,
 #          vector copy 2.sh)
 # Changed: -filter:a → -af; -level → -level:v

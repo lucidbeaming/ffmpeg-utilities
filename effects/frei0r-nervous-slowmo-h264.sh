@@ -24,6 +24,9 @@
 # doesn't look by default:
 #   export FREI0R_PATH=/opt/homebrew/lib/frei0r-1
 #
+# Also in notes/commands2.txt: the same nervous + minterpolate=fps=120
+# chain at -crf 18 with no audio slowdown (and no scd=none).
+#
 # Source:  ffmpeg-utilities/videogrep.sh (the grand-out command)
 # Changed: -filter_complex → -vf; -filter:a → -af
 # Tested:  ffmpeg 9.0.2

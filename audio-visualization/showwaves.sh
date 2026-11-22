@@ -19,6 +19,11 @@
 #   -c:v prores_ks -profile:v 3
 #                          ProRes 422 HQ
 #
+# Also in notes/ffmpeg-filters.txt: mode=p2p at 1280×720 with hex colors
+# (colors=0xA9A9A9|0xFDF5E6) to H.264. One showwaves line there passed
+# mpc=cyan, which belongs to aphasemeter (see aphasemeter.sh), and had no
+# [v] label.
+#
 # Source:  ffmpeg-utilities/wavs.sh
 # Changed: format=yuv422p → yuv422p10le (ProRes is 10-bit); removed the
 #          redundant -r 30 (the filter's rate=30 sets it); -c:v prores →

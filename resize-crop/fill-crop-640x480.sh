@@ -14,6 +14,9 @@
 #   -c:v libx264 -crf 18 -preset veryfast -pix_fmt yuv420p
 #                          high-quality H.264 that plays everywhere
 #
+# Also in notes/commands2.txt: the same cover-and-crop at 1280×720
+# (scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720).
+#
 # Source:  ffmpeg-utilities/batch 2.sh (also the batch loop in videogrep.sh,
 #          where a missing comma read "crop=640:480fps=fps=30")
 # Changed: fps=fps=30 → fps=30

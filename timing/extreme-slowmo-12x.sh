@@ -21,6 +21,10 @@
 # Expect long render times: a 10 s clip becomes 125 s of mostly synthesized
 # frames.
 #
+# Also in notes/commands2.txt: another butterflow run (spd=0.08,
+# --poly-s 1.8 --poly-n 7 -ff gaussian -r 29.97), tuning its optical-flow
+# smoothing. The minterpolate settings here play the same role.
+#
 # Source:  ffmpeg-utilities/butter.sh (identical to stretch.sh):
 #          butterflow -s a=0,b=end,spd=0.08 --poly-s 2 -ff box -l -v
 # Changed: rewritten for ffmpeg's minterpolate, since butterflow is no
