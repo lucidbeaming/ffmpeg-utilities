@@ -126,4 +126,4 @@ Separate tools used alongside ffmpeg in the same projects. These are described, 
 
 ## License
 
-Licensed under the [GNU General Public License v3.0 or later](LICENSE).
+[MIT](LICENSE). Earlier versions were published under GPL-3.0-or-later, and those copies keep that license.
