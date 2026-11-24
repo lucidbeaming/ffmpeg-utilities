@@ -26,3 +26,17 @@ If the output looks wrong, check these:
 - **"Could not find module":** set `FREI0R_PATH` as described in the header.
 - **Almost everything is dark:** your source color is too close to most of the frame. Move it away from the dominant tones.
 - **Almost everything is bright:** nothing in the footage is near the source color. Sample a color that actually appears in the shot.
+
+## frei0r-glitch-sobel-baltan.sh
+
+Reach for this when you want footage reduced to glowing, broken outlines that smear as things move. It suits music videos, title backdrops and loops, especially with clear motion against a plain background. Baltan's trails come from frame-to-frame change, so static shots get the edges but little ghosting. The header explains each filter in the chain.
+
+Skip it when you need clean, readable edges. [frei0r-sobel-edges.sh](frei0r-sobel-edges.sh) is the simpler starting point. For glitching without the edge pass, try [frei0r-glitch0r-prores.sh](frei0r-glitch0r-prores.sh) or [frei0r-glitch-vertigo-nervous.sh](frei0r-glitch-vertigo-nervous.sh).
+
+Useful variations:
+
+- Lower the four glitch0r numbers for occasional damage instead of constant breakup.
+- Drop `,frei0r=baltan` for crisp glitched edges without trails.
+- Change `-r 29.97` to match your source or delivery rate.
+
+If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the result is mostly black, the source probably has low contrast or soft focus, which gives Sobel few edges to find.
