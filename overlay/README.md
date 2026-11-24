@@ -55,3 +55,18 @@ To adapt it:
 - For a different target rate, change 29.97 in all three places.
 
 If the patch misses the logo, make sure you measured on a 1920×1080 frame. The box is in output coordinates, after the scale and crop, so values measured on the original frame need converting. Warping or ghosting around fast motion comes from minterpolate, not delogo.
+
+## video-mosaic-grid.sh
+
+Use this when you want a wall of clips playing side by side, such as a contact sheet of takes or a visual overview of a folder of footage. Run it inside a folder of `.mp4` files. It uses the first COLS×ROWS clips in name order and ignores the rest. The header explains each flag.
+
+Look elsewhere if your clips have no audio track. `amix` fails on silent inputs, so you'd need to drop the audio part and `-map "[a]"` as the header describes. Also skip it if you need the full length of every clip, because `-shortest` cuts the whole mosaic at the shortest one.
+
+For fewer clips, set `COLS=4 ROWS=4`, or change `TILE_W`/`TILE_H`. The output frame is COLS×TILE_W by ROWS×TILE_H, so keep both totals even for `yuv420p`.
+
+If the output looks wrong, check these:
+
+- **Audio is distorted or far too loud:** remove `normalize=0`.
+- **Some tiles are black:** the folder had fewer clips than grid cells.
+- **Edges of shots are cut off:** that's expected. Each clip is cropped to fill its tile.
+- **The video ends early:** one clip is shorter than the rest.
