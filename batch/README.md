@@ -14,3 +14,17 @@ If the output looks wrong:
 
 - **Nothing happens:** run it from inside the folder that holds the videos. With no matching files, the loop silently does nothing.
 - **No announcement:** `say` only exists on macOS and is skipped elsewhere.
+
+## render-visualizer-set.sh
+
+Reach for this when you have a folder of `.aiff` tracks and want several looks to choose between in an edit, rather than settling on one up front. Run it from inside that folder. It writes five 1080p MP4s per track next to the originals, each with the source audio. The header explains each flag.
+
+If you only need one look, use a single-filter script instead, such as [`../audio-visualization/showcqt.sh`](../audio-visualization/showcqt.sh) or [`../audio-visualization/showwaves.sh`](../audio-visualization/showwaves.sh). Each track is rendered five times, so a large folder takes a while.
+
+Useful edits:
+
+- Change `*.aiff` to another extension, such as `*.wav`, for other source files.
+- Change `1920x1080` on all five lines for a different frame size.
+- Delete the lines for visualizers you don't need.
+
+If nothing happens, no files in the current directory matched the glob. If one render fails, the others still run. Look for its error under the track name the script prints.
