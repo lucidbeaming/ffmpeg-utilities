@@ -28,3 +28,16 @@ Useful edits:
 - Delete the lines for visualizers you don't need.
 
 If nothing happens, no files in the current directory matched the glob. If one render fails, the others still run. Look for its error under the track name the script prints.
+
+## standardize-batch.sh
+
+Use this when a folder of `.mov` clips needs to become one consistent set of 1080p MP4s for the web, for example camera footage in mixed sizes going onto a site or a shared drive. It fills the frame and crops the overflow, so every output is exactly 1920×1080. The header explains each flag.
+
+Skip it when the full picture must survive, since edges are cropped rather than letterboxed. Skip it too when you need stereo, because the audio is downmixed to mono. For a single file at its original size, see [web-mp4-baseline-keep-size.sh](../conversion/web-mp4-baseline-keep-size.sh).
+
+Useful edits: change `*.mov` to match other inputs, change `1920:1080` in both `scale` and `crop` for another frame size, or raise `-crf` for smaller files.
+
+If the output looks wrong:
+
+- Heads or titles cut off: that's the crop. Reframe the source or pick a different size.
+- File won't play on some devices: 1080p is above what H.264 level 3.1 allows. Try raising `-level` to `4.0`.
