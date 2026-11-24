@@ -46,3 +46,17 @@ If the output looks wrong:
 - Squashed or stretched picture: the source wasn't square.
 - Volume differs from the original: this is `loudnorm` working as intended, and it is a single pass.
 - Playback waits for the full download: check that `-movflags +faststart` survived your edits.
+
+## web-ogv-theora-vorbis.sh
+
+Reach for this when a page needs an `.ogv` source, typically an older site whose `<video>` markup was built around Theora, or to sit alongside an MP4 from [web-mp4-square-600.sh](web-mp4-square-600.sh) as the open-format fallback. For new work, WebM (VP9 or AV1) is the usual open-format choice. The header explains each flag.
+
+The scale is fixed at 600×600, so it suits square sources. Anything else gets stretched rather than cropped or padded.
+
+Useful variations:
+
+- Change `600:600` to match the dimensions your page expects.
+- Raise or lower `-q:v 5` (0–10, higher is better) to trade size for quality.
+- Adjust `-q:a 4` for Vorbis, where 4 is about 128 kb/s.
+
+If the picture looks squashed or stretched, the source wasn't square. If the audio level differs noticeably from the original, that's `loudnorm` working as intended. If ffmpeg reports an unknown encoder, your build lacks libtheora or libvorbis.
