@@ -45,3 +45,19 @@ If the output looks wrong:
 
 - A tiny trace huddled in the centre means the zoom is too low for quiet material, so raise it.
 - A trace that floods the frame or runs off the edges means the zoom is too high for loud material, so lower it.
+
+## avectorscope.sh
+
+The header explains each flag. Reach for this when you want to see stereo image at a glance: a check on whether a mix is mono, narrow or wide, or a rendered visual to sit alongside the music. Because it writes ProRes 422 HQ with the audio included, the result drops straight into an editing timeline. For a single phase-correlation reading over time, [aphasemeter.sh](aphasemeter.sh) is clearer. For a different take on the same left/right plot, see [avectorscope-polar.sh](avectorscope-polar.sh).
+
+Useful edits:
+
+- Change `size=1920x1080` and `-r 30` to match your project's frame size and rate.
+- Lower `zoom=2` if loud passages run off the edges of the frame.
+- Swap `input.aiff` for any audio file ffmpeg can read.
+
+If the output looks wrong, check these:
+
+- **A single vertical line:** the source is mono or dual-mono. That's expected, and this script won't show much else.
+- **A mostly horizontal line:** the channels are largely out of phase.
+- **Large files:** ProRes HQ produces large files. Plan disk space for long tracks.
