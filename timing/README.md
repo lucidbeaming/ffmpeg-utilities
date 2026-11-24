@@ -33,3 +33,19 @@ Useful variations:
 - Delete entries from `settings` to rerun only the candidates you're still considering.
 
 If all eight files look identical, the chosen section probably contains little motion. If the files come out short or empty, check that `input.mp4` runs past 0:20.
+
+## minterpolate-normalize-fps.sh
+
+Reach for this when a clip has an odd or variable frame rate (screen recordings, web video, phone clips) and you need a steady 29.97 fps file that plays at its original speed. Instead of dropping or repeating frames, it synthesizes new ones, so motion stays smooth. The header explains each flag.
+
+Skip it if you want slow motion. Use [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh) instead. Interpolation is slow to render, so it is also overkill for footage that already has a clean, constant rate.
+
+Variations:
+
+- Change the target rate by editing 29.97 in all three places (minterpolate, setpts, `-r`) so they agree.
+- Change the crop size (640:480), keeping it no larger than the input.
+- Raise or lower `-crf 21` to trade file size for quality.
+
+If the output looks wrong, check these:
+
+An error at the crop step usually means the input is smaller than 640×480. Warped frames around fast motion come from interpolation. Smeared frames at hard cuts happen because scene-change detection is off (`scd=none`), so cuts get blended. To see how interpolation choices compare, try [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh).
