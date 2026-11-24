@@ -29,3 +29,17 @@ Variations:
 - **Video already the right size:** the header's minimal form skips the scale and crop.
 
 If the output looks wrong, check the PNG first. The logo isn't scaled, so one larger than 720×720 runs off the edges. A PNG without transparency shows up as a solid box.
+
+## overlay-then-sobel.sh
+
+Use this when you want the logo and the footage to read as one line drawing. The PNG is centered in a 1024×768 frame and then the whole composite is edge-detected, so the logo becomes an outline like everything else. The header explains each step.
+
+Don't use it if the logo must stay solid and legible. Swap the order as the header describes, with Sobel on `[0:v]` first and then the overlay, to keep a clean logo on top of edge-detected footage. For a plain centered logo with no effect, use [center-png-overlay-4x3.sh](center-png-overlay-4x3.sh). For edges without a logo, see [../effects/frei0r-sobel-edges.sh](../effects/frei0r-sobel-edges.sh).
+
+To change the frame size, edit `1024:768` in both the scale and the crop so they match.
+
+If the output looks wrong:
+
+- **"Could not find module":** set `FREI0R_PATH` as shown in the header. With Homebrew on Apple Silicon, that's `/opt/homebrew/lib/frei0r-1`.
+- **Parts of the picture are missing:** the scale-then-crop fills the frame and trims the overflow. Sources that aren't 4:3 lose their sides, or their top and bottom.
+- **The logo is only an outline:** that's the intended look. Swap the filter order to keep it solid.
