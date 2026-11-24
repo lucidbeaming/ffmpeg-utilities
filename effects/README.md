@@ -88,3 +88,15 @@ If the output looks wrong or the command fails:
 - frei0r isn't recognised at all: your ffmpeg was built without it.
 - Rendering is slow: expect this, because minterpolate is slow.
 - The file is large: expect this from ProRes.
+
+## frei0r-sobel-edges.sh
+
+Reach for this when you want only the outlines of a shot, white edges on black, framed as a centered 1024×768 (4:3) window for projection or an LED wall. The header explains each flag. It's the plain version of the edge effect. For edges combined with glitching, use [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh) or [sobel-edge-glitch.sh](sobel-edge-glitch.sh) instead. To composite a graphic before edge detection, see [../overlay/overlay-then-sobel.sh](../overlay/overlay-then-sobel.sh).
+
+Useful variations:
+
+- Feed it already-processed footage for layered looks, such as the output of [frei0r-nervous-slowmo-prores.sh](frei0r-nervous-slowmo-prores.sh). Change the input file name to match.
+- Change the crop size to fit a different screen or wall resolution.
+- Change `-r 29.97` to match your playback system.
+
+If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the crop step fails, the input is smaller than 1024×768. Scale it up first or pick a smaller crop. If the frame is mostly black, the source probably lacks contrast, so there are few edges to find.
