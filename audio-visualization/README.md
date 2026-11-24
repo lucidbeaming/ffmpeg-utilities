@@ -73,3 +73,18 @@ The header explains each flag. Useful edits:
 - Swap `input.aiff` for any audio file ffmpeg can read.
 
 If the video plays but is silent, check that `-map 0:a` survived your edits. If a player rejects the file, make sure `format=yuv420p` is still in the filter chain.
+
+## showwaves.sh
+
+Reach for this when you need a waveform as a separate layer to composite over footage in an editor. Each of the four commands renders one style as 1920×1080, 30 fps ProRes 422 HQ over black, with the original audio muxed in. Use a screen blend mode in the editor to drop the black. The header explains each flag. Delete the commands for the styles you don't need, and change `input.aiff` and the output names to suit.
+
+Skip it when you want frequency content rather than amplitude (see `showcqt.sh`) or stereo width and phase (see `avectorscope.sh` or `aphasemeter.sh`). ProRes files are large, so don't use this for web delivery.
+
+For variations, edit `size` and `rate` to match your timeline, or swap in hex colors such as `0xA9A9A9|0xFDF5E6`.
+
+If the output looks wrong:
+
+- **Waveform barely moves on quiet material:** switch `scale=lin` to `scale=log`.
+- **Channels overlap when you want them apart:** add `split_channels=1`.
+- **Filter rejects `mpc`:** that option belongs to aphasemeter, not showwaves.
+- **Mapping fails:** check that the filter chain ends with the `[v]` label.
