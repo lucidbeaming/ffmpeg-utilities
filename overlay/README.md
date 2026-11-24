@@ -43,3 +43,15 @@ If the output looks wrong:
 - **"Could not find module":** set `FREI0R_PATH` as shown in the header. With Homebrew on Apple Silicon, that's `/opt/homebrew/lib/frei0r-1`.
 - **Parts of the picture are missing:** the scale-then-crop fills the frame and trims the overflow. Sources that aren't 4:3 lose their sides, or their top and bottom.
 - **The logo is only an outline:** that's the intended look. Swap the filter order to keep it solid.
+
+## remove-logo-delogo.sh
+
+Use this when old camera footage has a burned-in logo or date stamp in a fixed spot and a soft blur is better than the mark. delogo doesn't recover what was under the logo. It fills the rectangle from the surrounding pixels, so the patch looks clean on sky or walls and like a smudge on detailed footage. It won't follow a mark that moves, because the box is fixed for the whole clip. The header explains each flag.
+
+To adapt it:
+
+- Set the delogo box for your footage. Grab a frame with `../stills-and-gifs/extract-frame-jpg.sh` and measure it, or add `:show=1` to see the box.
+- Drop `-ss 15` and `-t 10` once the test clip looks right.
+- For a different target rate, change 29.97 in all three places.
+
+If the patch misses the logo, make sure you measured on a 1920×1080 frame. The box is in output coordinates, after the scale and crop, so values measured on the original frame need converting. Warping or ghosting around fast motion comes from minterpolate, not delogo.
