@@ -21,3 +21,15 @@ Skip it if you need sound, because `-an` drops the audio. For that case, look at
 To use a different factor or source rate, set `fps` to the source fps ÷ speed. Then replace both 30s, in `setpts` and `-r`, with the source rate. For example, a 24 fps source at 12.5× needs `fps=300`, `setpts=N/(24*TB)` and `-r 24`.
 
 If the output runs longer or shorter than 12.5× the input, check that the source really is 30 fps. Warping or smearing around moving edges comes from the interpolation guessing. Clips with simpler motion hold up better.
+
+## minterpolate-mode-comparison.sh
+
+Reach for this when a minterpolate slow-motion render shows warping, ghosting or blocky edges and you want to see which motion-estimation setting copes best with your particular footage. It renders the same 15 seconds eight ways, each about 45 seconds long at 3× slower, so you can compare them side by side. The header explains each setting. Don't use it for final output. It drops audio and encodes with a fast x264 preset, so it's meant only for judging. Once you've chosen, carry that option string over to [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) or [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh).
+
+Useful variations:
+
+- Move `-ss 5 -t 15` to the section with the hardest motion. A shorter `-t` speeds up the slow settings such as `esa` and `mbsize`.
+- Change `fps=90` together with `29.97` to test a different slowdown factor.
+- Delete entries from `settings` to rerun only the candidates you're still considering.
+
+If all eight files look identical, the chosen section probably contains little motion. If the files come out short or empty, check that `input.mp4` runs past 0:20.
