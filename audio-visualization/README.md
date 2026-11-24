@@ -61,3 +61,15 @@ If the output looks wrong, check these:
 - **A single vertical line:** the source is mono or dual-mono. That's expected, and this script won't show much else.
 - **A mostly horizontal line:** the channels are largely out of phase.
 - **Large files:** ProRes HQ produces large files. Plan disk space for long tracks.
+
+## showcqt.sh
+
+Reach for this when the audio is music and you want viewers to see pitch: melodies, chords and bass lines show up as distinct bands, because each octave gets equal width. It suits music videos, harmony demonstrations or checking a mix for clashing notes. For speech, noise or sound effects, the musical scale adds little. Use [showwaves.sh](showwaves.sh) for a waveform, or [avectorscope.sh](avectorscope.sh) and [aphasemeter.sh](aphasemeter.sh) to inspect the stereo image instead.
+
+The header explains each flag. Useful edits:
+
+- Change `size=1280x720` to match your target, such as `1920x1080` for a 1080p upload.
+- Drop `text=0` to show note-name labels. The header notes the labels need a font, so expect a font error if none is available.
+- Swap `input.aiff` for any audio file ffmpeg can read.
+
+If the video plays but is silent, check that `-map 0:a` survived your edits. If a player rejects the file, make sure `format=yuv420p` is still in the filter chain.
