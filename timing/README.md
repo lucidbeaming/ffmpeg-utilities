@@ -78,3 +78,16 @@ To change the slowdown, set `fps` to the source rate times the factor:
 Leave the 29.97 values alone. They set the playback rate, not the slowdown.
 
 If the result isn't about four times the source duration, the source probably isn't ~30 fps, so recompute `fps`. If the motion looks odd, compare interpolation modes with [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh). Expect slow renders and large files.
+
+## minterpolate-slowmo-with-audio.sh
+
+Use this when you want a short clip slowed to a dreamy 4× with its sound slowed to match, cropped square for a social feed. Scene-change detection is off, so cuts blend into each other. If you want clean cuts, this is the wrong script. If you need an editing intermediate rather than a finished upload, look at [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh). The header explains each flag.
+
+Useful variations, both from the source:
+
+- For a 16:9 frame, change the scale and crop sizes from `1080:1080` to `1920:1080`.
+- For a 2× slowdown, set `fps=60` and use a single `atempo=0.5`.
+
+If you change the slowdown, keep the audio factor equal to the video factor, or the audio will drift out of sync.
+
+If moving edges warp or smear, that comes from interpolation. [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh) helps you compare approaches. If the subject gets cut off, the square crop is trimming the sides, so try the 1920×1080 variant. Expect slow encodes, because minterpolate is the costly step.
