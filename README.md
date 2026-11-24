@@ -2,6 +2,8 @@
 
 Real-world ffmpeg commands for transforming video, images and audio, grouped by theme.
 
+Documentation: [joshuacurry.dev/ffmpeg](https://joshuacurry.dev/ffmpeg), with a page per command.
+
 Each `.sh` file is a single, copy-paste-ready command or small loop, taken from real projects. The comment header explains what it does and why, what every flag means, which script it came from, and what was changed to bring it up to date. Every ffmpeg example was run against generated test media on ffmpeg 9.0.2.
 
 Each file's `Source:` line names the original script in this repo that the command came from. The originals were removed once converted and are still in the git history.
