@@ -15,3 +15,11 @@ If something looks wrong:
 - Nothing in `svg/`: the script only matches `*.png` in the current folder and quietly does nothing if there are none.
 - `primitive: command not found`: the Go bin folder (often `~/go/bin`) isn't on your `PATH`.
 - Too abstract: raise `-n`. Too slow: lower it.
+
+## videogrep-supercut.sh
+
+Reach for this when you have footage of people talking (interviews, lectures, news clips) and want every moment a word or phrase is spoken cut into one video. It's not an ffmpeg command: videogrep is a separate install, and it needs clear speech to transcribe. Music, heavy background noise or silent footage will give poor or empty results. The header explains each flag.
+
+Work in three steps: transcribe once, look at the `--ngrams 1` list to choose a word, then search. To keep clips in their original order, drop `--randomize`. For phrases rather than single words, use the default `sentence` search type instead of `fragment`. The finished supercut can go through [../timing/extreme-slowmo-12x.sh](../timing/extreme-slowmo-12x.sh), [../effects/frei0r-nervous-slowmo-h264.sh](../effects/frei0r-nervous-slowmo-h264.sh) or [../conversion/xvid-roundtrip-crush.sh](../conversion/xvid-roundtrip-crush.sh).
+
+If matches are missing, the transcript probably misheard them. Check how the word appears in the `--ngrams` list, or transcribe again with a larger `--model`. Transcripts are reused, so delete the old `.json` files first. If words sound clipped, raise `--padding` a little.
