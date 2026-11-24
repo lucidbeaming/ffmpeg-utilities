@@ -4,7 +4,7 @@ The scripts in this folder change how a file is packaged or encoded rather than 
 
 ## remux-faststart.sh
 
-Reach for this when a video already uses codecs a browser can play, but sits in a .mov, or in an MP4 that won't start playing until it has fully downloaded. Nothing is re-encoded, so it runs about as fast as the file can be copied and quality is unchanged. The header explains each flag.
+This is for when a video already uses codecs a browser can play, but sits in a .mov, or in an MP4 that won't start playing until it has fully downloaded. Nothing is re-encoded, so it runs about as fast as the file can be copied and quality is unchanged. The header explains each flag.
 
 It can't fix the codecs themselves. A ProRes or other editing-format .mov becomes an MP4 that a browser still won't play. For those, re-encode with a script such as [web-mp4-baseline-keep-size.sh](web-mp4-baseline-keep-size.sh) instead.
 
@@ -18,7 +18,7 @@ If the output looks wrong:
 
 ## web-mp4-baseline-keep-size.sh
 
-Reach for this when a clip is already the size you want on the page but its encoding won't play everywhere, such as an iPhone HEVC clip or a ProRes export. It re-encodes video and audio and leaves the frame size alone. The header explains each flag.
+Useful when a clip is already the size you want on the page but its encoding won't play everywhere, such as an iPhone HEVC clip or a ProRes export. It re-encodes video and audio and leaves the frame size alone. The header explains each flag.
 
 Skip it if the encoding is already fine and only faststart is missing; [remux-faststart.sh](remux-faststart.sh) handles that case. If the frame size also needs to change, use [web-mp4-square-600.sh](web-mp4-square-600.sh) or [fill-crop-640x480.sh](../resize-crop/fill-crop-640x480.sh). Level 4.1 only goes up to 1080p, so resize anything larger first.
 
@@ -49,7 +49,7 @@ If the output looks wrong:
 
 ## web-ogv-theora-vorbis.sh
 
-Reach for this when a page needs an `.ogv` source, typically an older site whose `<video>` markup was built around Theora, or to sit alongside an MP4 from [web-mp4-square-600.sh](web-mp4-square-600.sh) as the open-format fallback. For new work, WebM (VP9 or AV1) is the usual open-format choice. The header explains each flag.
+This is useful when a page needs an `.ogv` source, typically an older site whose `<video>` markup was built around Theora, or to sit alongside an MP4 from [web-mp4-square-600.sh](web-mp4-square-600.sh) as the open-format fallback. For new work, WebM (VP9 or AV1) is the usual open-format choice. The header explains each flag.
 
 The scale is fixed at 600×600, so it suits square sources. Anything else gets stretched rather than cropped or padded.
 

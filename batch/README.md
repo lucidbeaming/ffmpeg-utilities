@@ -1,6 +1,6 @@
 # Batch processing
 
-The scripts in this folder each run an ffmpeg job over every matching file in a folder, keeping each file's base name in its output, so you can process a whole shoot or album in one go instead of file by file. Reach for them when you have many files that need the same treatment, such as rendering a set of visualizers for each audio track or bringing mixed footage to a common 1080p format, or when a long render should run unattended. The loop in `batch-loop-with-notification.sh` is the general pattern: swap any command from the other folders into its body, and its header explains each flag.
+The scripts in this folder each run an ffmpeg job over every matching file in a folder, keeping each file's base name in its output, so you can process a whole shoot or album in one go instead of file by file. These are for when you have many files that need the same treatment, such as rendering a set of visualizers for each audio track or bringing mixed footage to a common 1080p format, or when a long render should run unattended. The loop in `batch-loop-with-notification.sh` is the general pattern: swap any command from the other folders into its body, and its header explains each flag.
 
 ## batch-loop-with-notification.sh
 
@@ -17,7 +17,7 @@ If the output looks wrong:
 
 ## render-visualizer-set.sh
 
-Reach for this when you have a folder of `.aiff` tracks and want several looks to choose between in an edit, rather than settling on one up front. Run it from inside that folder. It writes five 1080p MP4s per track next to the originals, each with the source audio. The header explains each flag.
+This is used when you have a folder of `.aiff` tracks and want several looks to choose between in an edit, rather than settling on one up front. Run it from inside that folder. It writes five 1080p MP4s per track next to the originals, each with the source audio. The header explains each flag.
 
 If you only need one look, use a single-filter script instead, such as [`../audio-visualization/showcqt.sh`](../audio-visualization/showcqt.sh) or [`../audio-visualization/showwaves.sh`](../audio-visualization/showwaves.sh). Each track is rendered five times, so a large folder takes a while.
 

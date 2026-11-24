@@ -1,6 +1,6 @@
 # Image sequences
 
-The scripts in this folder turn a folder of numbered still images into a video. Each one reads the frames at a set rate, scales them to cover a fixed frame size such as 1080p or 720p, and crops off whatever overflows. Reach for them when you have camera timelapse photos, rendered or exported frames to assemble, or vector animation frames that need to become a transparent overlay. Adapting one usually means matching the filename pattern and start number to your files and adjusting the rate and output size; each script's header explains every flag.
+The scripts in this folder turn a folder of numbered still images into a video. Each one reads the frames at a set rate, scales them to cover a fixed frame size such as 1080p or 720p, and crops off whatever overflows. They're useful when you have camera timelapse photos, rendered or exported frames to assemble, or vector animation frames that need to become a transparent overlay. Adapting one usually means matching the filename pattern and start number to your files and adjusting the rate and output size; each script's header explains every flag.
 
 ## gopro-timelapse-start-number.sh
 
@@ -16,7 +16,7 @@ If ffmpeg reports that it can't find the input, the start number or the pattern 
 
 ## image-sequence-2-video.sh
 
-Reach for this when you have a folder of numbered stills, such as a GoPro timelapse, and want a 1080p MP4 that fills the frame with no black bars. The header explains each flag. Skip it if the whole image must stay visible: the fill-and-crop step trims the edges of any image that isn't 16:9, keeping the centre.
+This is useful when you have a folder of numbered stills, such as a GoPro timelapse, and want a 1080p MP4 that fills the frame with no black bars. The header explains each flag. Skip it if the whole image must stay visible: the fill-and-crop step trims the edges of any image that isn't 16:9, keeping the centre.
 
 Each image is shown at 3 per second and the output is written at 29.97 fps, so stills repeat rather than blend. Raise the input rate for a faster timelapse or lower it to linger. Other easy edits:
 

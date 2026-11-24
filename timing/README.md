@@ -1,6 +1,6 @@
 # Timing and slow motion
 
-The scripts in this folder change how time plays back: most stretch a clip into slow motion, and a couple change the frame rate without changing the speed. They work in one of two ways: either by playing every frame of high-frame-rate footage at 29.97 fps, or by using ffmpeg's `minterpolate` filter to synthesize in-between frames. Reach for them when you need slow motion from either kind of footage, want to compare interpolation settings to reduce artifacts, or need to turn odd or variable frame rates into a steady 29.97 fps.
+The scripts in this folder change how time plays back: most stretch a clip into slow motion, and a couple change the frame rate without changing the speed. They work in one of two ways: either by playing every frame of high-frame-rate footage at 29.97 fps, or by using ffmpeg's `minterpolate` filter to synthesize in-between frames. These are for when you need slow motion from either kind of footage, want to compare interpolation settings to reduce artifacts, or need to turn odd or variable frame rates into a steady 29.97 fps.
 
 ## conform-to-2997-prores.sh
 
@@ -24,7 +24,7 @@ If the output runs longer or shorter than 12.5× the input, check that the sourc
 
 ## minterpolate-mode-comparison.sh
 
-Reach for this when a minterpolate slow-motion render shows warping, ghosting or blocky edges and you want to see which motion-estimation setting copes best with your particular footage. It renders the same 15 seconds eight ways, each about 45 seconds long at 3× slower, so you can compare them side by side. The header explains each setting. Don't use it for final output. It drops audio and encodes with a fast x264 preset, so it's meant only for judging. Once you've chosen, carry that option string over to [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) or [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh).
+This is for when a minterpolate slow-motion render shows warping, ghosting or blocky edges and you want to see which motion-estimation setting copes best with your particular footage. It renders the same 15 seconds eight ways, each about 45 seconds long at 3× slower, so you can compare them side by side. The header explains each setting. Don't use it for final output. It drops audio and encodes with a fast x264 preset, so it's meant only for judging. Once you've chosen, carry that option string over to [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) or [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh).
 
 Useful variations:
 
@@ -36,7 +36,7 @@ If all eight files look identical, the chosen section probably contains little m
 
 ## minterpolate-normalize-fps.sh
 
-Reach for this when a clip has an odd or variable frame rate (screen recordings, web video, phone clips) and you need a steady 29.97 fps file that plays at its original speed. Instead of dropping or repeating frames, it synthesizes new ones, so motion stays smooth. The header explains each flag.
+Useful when a clip has an odd or variable frame rate (screen recordings, web video, phone clips) and you need a steady 29.97 fps file that plays at its original speed. Instead of dropping or repeating frames, it synthesizes new ones, so motion stays smooth. The header explains each flag.
 
 Skip it if you want slow motion. Use [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh) instead. Interpolation is slow to render, so it is also overkill for footage that already has a clean, constant rate.
 
@@ -52,7 +52,7 @@ An error at the crop step usually means the input is smaller than 640×480. Warp
 
 ## minterpolate-raise-fps.sh
 
-Reach for this when you want 30 fps footage to play back as smooth 120 fps motion at its original speed. Typical uses are a high-frame-rate edit, or a clean look at how well interpolation holds up on your material. The header explains each flag. Skip it when you want the clip slowed down: use [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) instead. Also skip it when the "smooth motion" TV look would be unwelcome, such as on footage meant to feel filmic.
+This is useful when you want 30 fps footage to play back as smooth 120 fps motion at its original speed. Typical uses are a high-frame-rate edit, or a clean look at how well interpolation holds up on your material. The header explains each flag. Skip it when you want the clip slowed down: use [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) instead. Also skip it when the "smooth motion" TV look would be unwelcome, such as on footage meant to feel filmic.
 
 The main variation is the target rate. Change `fps=120` to `60` for a lighter file and a faster render, and change `input.mov` and `output.mp4` to suit. To compare interpolation approaches side by side, see [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh).
 
@@ -65,7 +65,7 @@ If the output looks wrong:
 
 ## minterpolate-slowmo-prores.sh
 
-Reach for this when you have ordinary ~30 fps footage and want a smooth 4× slowdown without the stutter of repeated frames. It writes ProRes 422, so the result is ready to bring into an editor. The header explains each flag.
+This is used when you have ordinary ~30 fps footage and want a smooth 4× slowdown without the stutter of repeated frames. It writes ProRes 422, so the result is ready to bring into an editor. The header explains each flag.
 
 Skip it when the shot is full of fast or crossing motion and you need clean frames. Interpolation will warp those areas, and that is part of the look rather than a bug. Also skip it when you need sound: this version drops audio, so use [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh) instead. For much stronger slowdowns, see [extreme-slowmo-12x.sh](extreme-slowmo-12x.sh).
 

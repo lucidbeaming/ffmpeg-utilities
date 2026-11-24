@@ -1,10 +1,10 @@
 # Effects
 
-The scripts in this folder are for stylized and experimental looks rather than delivery: glitches, edge outlines, frame shuffling and stutter, 1-bit dithering, and interpolated slow motion that warps instead of smoothing. Reach for them when you're making visuals for music videos, projection, or LED walls, and chain them by running one script on another's output for layered effects. Most rely on frei0r plugins, so you need an ffmpeg built with frei0r. Several write ProRes for further editing or a rough draft H.264 for previews, and each header explains its flags and what to change for a final render.
+The scripts in this folder are for stylized and experimental looks rather than delivery: glitches, edge outlines, frame shuffling and stutter, 1-bit dithering, and interpolated slow motion that warps instead of smoothing. They're used when you're making visuals for music videos, projection, or LED walls, and chain them by running one script on another's output for layered effects. Most rely on frei0r plugins, so you need an ffmpeg built with frei0r. Several write ProRes for further editing or a rough draft H.264 for previews, and each header explains its flags and what to change for a final render.
 
 ## ditherpunk.sh
 
-Reach for this to get a stark, 1-bit look, where every pixel is pure black or pure white and tones are rendered as dither patterns. It suits stylised clips, music visuals and retro computer aesthetics. It is a poor fit when you need to keep color, fine detail or a subtle grade. The header explains the palette image the command needs.
+This is used to get a stark, 1-bit look, where every pixel is pure black or pure white and tones are rendered as dither patterns. It suits stylised clips, music visuals and retro computer aesthetics. It is a poor fit when you need to keep color, fine detail or a subtle grade. The header explains the palette image the command needs.
 
 The simplest variation is to swap `bw.png` for another 16x16 PNG that uses two different colors, such as green and black, to get a duotone instead. For a looping image rather than a video, see [palette-gif.sh](../stills-and-gifs/palette-gif.sh).
 
@@ -15,7 +15,7 @@ If the output looks wrong, check these:
 
 ## frei0r-colordistance.sh
 
-Reach for this when you want a grayscale map of how far each pixel is from one color: as a matte for later compositing, or for a ghostly, solarized look. With the default source color (black), shadows stay dark and everything else brightens. The header explains each flag.
+This is used when you want a grayscale map of how far each pixel is from one color: as a matte for later compositing, or for a ghostly, solarized look. With the default source color (black), shadows stay dark and everything else brightens. The header explains each flag.
 
 It isn't an edge detector. If you want outlines rather than tonal distance, try `frei0r-sobel-edges.sh` or `sobel-edge-glitch.sh` instead.
 
@@ -29,7 +29,7 @@ If the output looks wrong, check these:
 
 ## frei0r-glitch-sobel-baltan.sh
 
-Reach for this when you want footage reduced to glowing, broken outlines that smear as things move. It suits music videos, title backdrops and loops, especially with clear motion against a plain background. Baltan's trails come from frame-to-frame change, so static shots get the edges but little ghosting. The header explains each filter in the chain.
+This is for when you want footage reduced to glowing, broken outlines that smear as things move. It suits music videos, title backdrops and loops, especially with clear motion against a plain background. Baltan's trails come from frame-to-frame change, so static shots get the edges but little ghosting. The header explains each filter in the chain.
 
 Skip it when you need clean, readable edges. [frei0r-sobel-edges.sh](frei0r-sobel-edges.sh) is the simpler starting point. For glitching without the edge pass, try [frei0r-glitch0r-prores.sh](frei0r-glitch0r-prores.sh) or [frei0r-glitch-vertigo-nervous.sh](frei0r-glitch-vertigo-nervous.sh).
 
@@ -43,7 +43,7 @@ If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows
 
 ## frei0r-glitch-vertigo-nervous.sh
 
-Reach for this when you want a hypnotic, unstable look: a swirling feedback tunnel that twitches as frames get shuffled, with only occasional block glitches on top. It suits music visuals, loops and title backgrounds. Skip it when motion needs to read clearly or lip sync matters, because Nervous scrambles the order of recent frames. For a gentler stutter, try [shuffleframes-stutter.sh](shuffleframes-stutter.sh). For edge-based glitching, see [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh). The header explains each filter.
+Useful when you want a hypnotic, unstable look: a swirling feedback tunnel that twitches as frames get shuffled, with only occasional block glitches on top. It suits music visuals, loops and title backgrounds. Skip it when motion needs to read clearly or lip sync matters, because Nervous scrambles the order of recent frames. For a gentler stutter, try [shuffleframes-stutter.sh](shuffleframes-stutter.sh). For edge-based glitching, see [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh). The header explains each filter.
 
 Variations:
 
@@ -67,7 +67,7 @@ If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows
 
 ## frei0r-nervous-slowmo-h264.sh
 
-Reach for this when you want the jittery, dreamlike "nervous" slow motion as a file you can post or send straight away. It keeps the sound, slowed to match, and encodes a 640×480 H.264 file that most players handle. If you plan to keep editing or grading the result, use [frei0r-nervous-slowmo-prores.sh](frei0r-nervous-slowmo-prores.sh) instead. For plain slow motion without the jitter, see [../timing/minterpolate-slowmo-with-audio.sh](../timing/minterpolate-slowmo-with-audio.sh). The header explains each flag.
+This is useful when you want the jittery, dreamlike "nervous" slow motion as a file you can post or send straight away. It keeps the sound, slowed to match, and encodes a 640×480 H.264 file that most players handle. If you plan to keep editing or grading the result, use [frei0r-nervous-slowmo-prores.sh](frei0r-nervous-slowmo-prores.sh) instead. For plain slow motion without the jitter, see [../timing/minterpolate-slowmo-with-audio.sh](../timing/minterpolate-slowmo-with-audio.sh). The header explains each flag.
 
 Variations from the source:
 
@@ -78,7 +78,7 @@ If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows
 
 ## frei0r-nervous-slowmo-prores.sh
 
-Reach for this when you want twitchy, out-of-order motion turned into slow, smeared warping, and you plan to keep editing or grading the result. ProRes 422 10-bit holds up better through further processing than a delivery codec. For a smaller file to share directly, use the H.264 counterpart, [frei0r-nervous-slowmo-h264.sh](frei0r-nervous-slowmo-h264.sh). For clean slow motion without the jitter, see [../timing/minterpolate-slowmo-prores.sh](../timing/minterpolate-slowmo-prores.sh). The header explains each flag.
+This is used when you want twitchy, out-of-order motion turned into slow, smeared warping, and you plan to keep editing or grading the result. ProRes 422 10-bit holds up better through further processing than a delivery codec. For a smaller file to share directly, use the H.264 counterpart, [frei0r-nervous-slowmo-h264.sh](frei0r-nervous-slowmo-h264.sh). For clean slow motion without the jitter, see [../timing/minterpolate-slowmo-prores.sh](../timing/minterpolate-slowmo-prores.sh). The header explains each flag.
 
 To change the slowdown, edit the minterpolate rate. `fps=60` gives roughly 2× slow motion instead of 4×. If you change the playback rate, change it in both `setpts` and `-r` so they stay matched. The script drops audio, so add any sound in your editor.
 
@@ -91,7 +91,7 @@ If the output looks wrong or the command fails:
 
 ## frei0r-sobel-edges.sh
 
-Reach for this when you want only the outlines of a shot, white edges on black, framed as a centered 1024×768 (4:3) window for projection or an LED wall. The header explains each flag. It's the plain version of the edge effect. For edges combined with glitching, use [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh) or [sobel-edge-glitch.sh](sobel-edge-glitch.sh) instead. To composite a graphic before edge detection, see [../overlay/overlay-then-sobel.sh](../overlay/overlay-then-sobel.sh).
+This is for when you want only the outlines of a shot, white edges on black, framed as a centered 1024×768 (4:3) window for projection or an LED wall. The header explains each flag. It's the plain version of the edge effect. For edges combined with glitching, use [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh) or [sobel-edge-glitch.sh](sobel-edge-glitch.sh) instead. To composite a graphic before edge detection, see [../overlay/overlay-then-sobel.sh](../overlay/overlay-then-sobel.sh).
 
 Useful variations:
 
@@ -103,7 +103,7 @@ If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows
 
 ## normalize-levels.sh
 
-Reach for this when an image sequence looks flat, washed out or tinted, and you want a quick auto-levels pass while turning it into a 1280×720 preview video. Because normalize works over a rolling window of frames, it adapts as the footage changes. That makes it a poor fit when exposure has already been graded, or when you need levels to stay fixed for the whole clip. The header explains each flag.
+Useful when an image sequence looks flat, washed out or tinted, and you want a quick auto-levels pass while turning it into a 1280×720 preview video. Because normalize works over a rolling window of frames, it adapts as the footage changes. That makes it a poor fit when exposure has already been graded, or when you need levels to stay fixed for the whole clip. The header explains each flag.
 
 Useful variations:
 

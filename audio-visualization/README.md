@@ -1,12 +1,12 @@
 # Audio visualization
 
-The scripts in this folder each turn an audio file into a video that shows something about the sound: its waveform, its spectrum on a musical scale, its loudness distribution, or how its left and right channels relate. Each one renders the visualization with the original audio muxed in, either as H.264 for quick viewing and sharing or as ProRes 422 HQ for compositing in an editor. Reach for them when you need a visual to go with a music track, or when you want to check a mix's dynamic range, stereo width or mono compatibility by eye. The header in each script explains every flag.
+The scripts in this folder each turn an audio file into a video that shows something about the sound: its waveform, its spectrum on a musical scale, its loudness distribution, or how its left and right channels relate. Each one renders the visualization with the original audio muxed in, either as H.264 for quick viewing and sharing or as ProRes 422 HQ for compositing in an editor. They're useful when you need a visual to go with a music track, or when you want to check a mix's dynamic range, stereo width or mono compatibility by eye. The header in each script explains every flag.
 
 ## ahistogram.sh
 
 Use this when you want to see a track's dynamic range rather than its shape or pitch. It works well for comparing two masters of the same song, or for checking whether a mix has been squashed. Quiet, dynamic material spreads wide. Heavily compressed audio piles up near the top. The header explains each flag.
 
-For other views, reach for a different script:
+For other views, use a different script:
 
 - [showwaves.sh](showwaves.sh) for the waveform over time.
 - [showcqt.sh](showcqt.sh) for pitch and frequency content.
@@ -23,7 +23,7 @@ If the output looks wrong:
 
 ## aphasemeter.sh
 
-Reach for `aphasemeter.sh` to check whether a stereo mix will survive being summed to mono, for example before sending audio to broadcast, phone speakers or a mono club system. It renders the meter as a video with the original audio alongside, so you can scrub to the moments where the bar swings left. The header explains each flag and how to read the meter.
+`aphasemeter.sh` is used to check whether a stereo mix will survive being summed to mono, for example before sending audio to broadcast, phone speakers or a mono club system. It renders the meter as a video with the original audio alongside, so you can scrub to the moments where the bar swings left. The header explains each flag and how to read the meter.
 
 It measures how the left and right channels relate to each other, so it only tells you something about stereo sources. For a picture of stereo width rather than a single phase reading, use [avectorscope.sh](avectorscope.sh) or [avectorscope-polar.sh](avectorscope-polar.sh).
 
@@ -48,7 +48,7 @@ If the output looks wrong:
 
 ## avectorscope.sh
 
-The header explains each flag. Reach for this when you want to see stereo image at a glance: a check on whether a mix is mono, narrow or wide, or a rendered visual to sit alongside the music. Because it writes ProRes 422 HQ with the audio included, the result drops straight into an editing timeline. For a single phase-correlation reading over time, [aphasemeter.sh](aphasemeter.sh) is clearer. For a different take on the same left/right plot, see [avectorscope-polar.sh](avectorscope-polar.sh).
+The header explains each flag. This is for when you want to see stereo image at a glance: a check on whether a mix is mono, narrow or wide, or a rendered visual to sit alongside the music. Because it writes ProRes 422 HQ with the audio included, the result drops straight into an editing timeline. For a single phase-correlation reading over time, [aphasemeter.sh](aphasemeter.sh) is clearer. For a different take on the same left/right plot, see [avectorscope-polar.sh](avectorscope-polar.sh).
 
 Useful edits:
 
@@ -64,7 +64,7 @@ If the output looks wrong, check these:
 
 ## showcqt.sh
 
-Reach for this when the audio is music and you want viewers to see pitch: melodies, chords and bass lines show up as distinct bands, because each octave gets equal width. It suits music videos, harmony demonstrations or checking a mix for clashing notes. For speech, noise or sound effects, the musical scale adds little. Use [showwaves.sh](showwaves.sh) for a waveform, or [avectorscope.sh](avectorscope.sh) and [aphasemeter.sh](aphasemeter.sh) to inspect the stereo image instead.
+Useful when the audio is music and you want viewers to see pitch: melodies, chords and bass lines show up as distinct bands, because each octave gets equal width. It suits music videos, harmony demonstrations or checking a mix for clashing notes. For speech, noise or sound effects, the musical scale adds little. Use [showwaves.sh](showwaves.sh) for a waveform, or [avectorscope.sh](avectorscope.sh) and [aphasemeter.sh](aphasemeter.sh) to inspect the stereo image instead.
 
 The header explains each flag. Useful edits:
 
@@ -76,7 +76,7 @@ If the video plays but is silent, check that `-map 0:a` survived your edits. If 
 
 ## showwaves.sh
 
-Reach for this when you need a waveform as a separate layer to composite over footage in an editor. Each of the four commands renders one style as 1920×1080, 30 fps ProRes 422 HQ over black, with the original audio muxed in. Use a screen blend mode in the editor to drop the black. The header explains each flag. Delete the commands for the styles you don't need, and change `input.aiff` and the output names to suit.
+This is useful when you need a waveform as a separate layer to composite over footage in an editor. Each of the four commands renders one style as 1920×1080, 30 fps ProRes 422 HQ over black, with the original audio muxed in. Use a screen blend mode in the editor to drop the black. The header explains each flag. Delete the commands for the styles you don't need, and change `input.aiff` and the output names to suit.
 
 Skip it when you want frequency content rather than amplitude (see `showcqt.sh`) or stereo width and phase (see `avectorscope.sh` or `aphasemeter.sh`). ProRes files are large, so don't use this for web delivery.
 
