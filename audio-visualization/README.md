@@ -20,3 +20,17 @@ If the output looks wrong:
 - **No sound:** confirm `-map 0:a` is still present.
 - **File won't play in some players:** check that `format=yuv420p` wasn't removed.
 - **Command fails immediately:** make sure the input actually contains an audio stream.
+
+## aphasemeter.sh
+
+Reach for `aphasemeter.sh` to check whether a stereo mix will survive being summed to mono, for example before sending audio to broadcast, phone speakers or a mono club system. It renders the meter as a video with the original audio alongside, so you can scrub to the moments where the bar swings left. The header explains each flag and how to read the meter.
+
+It measures how the left and right channels relate to each other, so it only tells you something about stereo sources. For a picture of stereo width rather than a single phase reading, use [avectorscope.sh](avectorscope.sh) or [avectorscope-polar.sh](avectorscope-polar.sh).
+
+Useful edits:
+
+- Change `s=1280x720` to match the frame size of whatever the meter will be shown in.
+- Change `mpc=cyan` to another color if the median line is hard to see against the bars.
+- Swap `input.aiff` and `output.mp4` for your own file names.
+
+If ffmpeg refuses to build the filter graph, check that both `aphasemeter` outputs are still labeled `[a][pv]` and that `format=` reads from `[pv]`. Chaining `format=` straight onto `aphasemeter` is the failure the header's "Changed" note describes. If the MP4 won't play in some players, make sure the `format=yuv420p` step is still in the chain.
