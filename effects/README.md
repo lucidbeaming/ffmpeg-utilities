@@ -64,3 +64,14 @@ Useful variations:
 - Change `input.mp4` and `output.mov` to your own file names.
 
 If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the output looks barely touched, the first value (glitch frequency) is probably too low for your clip, so raise it. For a different glitch look, see [random-difference-glitch.sh](random-difference-glitch.sh).
+
+## frei0r-nervous-slowmo-h264.sh
+
+Reach for this when you want the jittery, dreamlike "nervous" slow motion as a file you can post or send straight away. It keeps the sound, slowed to match, and encodes a 640×480 H.264 file that most players handle. If you plan to keep editing or grading the result, use [frei0r-nervous-slowmo-prores.sh](frei0r-nervous-slowmo-prores.sh) instead. For plain slow motion without the jitter, see [../timing/minterpolate-slowmo-with-audio.sh](../timing/minterpolate-slowmo-with-audio.sh). The header explains each flag.
+
+Variations from the source:
+
+- Change both `640:480` pairs to `1920:1080` for a widescreen frame.
+- For a 2× slowdown, interpolate to 60 fps and use a single `atempo=0.5`.
+
+If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If sound and picture drift apart, check that the number of `atempo=0.5` stages matches the slowdown. Expect a slow render and an output about four times longer than the input. Blended cuts are intentional. Missing picture at the edges comes from the fill crop.
