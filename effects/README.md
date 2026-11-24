@@ -52,3 +52,15 @@ Variations:
 - Swap in [frei0r-glitch0r-prores.sh](frei0r-glitch0r-prores.sh) if you only want the block glitching.
 
 If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the glitches seem to be missing, that's expected: the glitch0r values are deliberately rare and small.
+
+## frei0r-glitch0r-prores.sh
+
+Use this when you want blocky, damaged-signal glitches on a clip that's going back into an editor. The ProRes 422 output holds up through further cutting and grading. The default values are gentle: occasional sideways block shifts with no color damage. For a final web upload, encode the result separately, because the `.mov` file is large. The header explains each flag.
+
+Useful variations:
+
+- For heavier damage, try the source's stronger values `0.3|0.3|0.6|0.3`, which also turn on color glitching.
+- Keep the gentle shifts but add color damage by raising only the last value above 0.
+- Change `input.mp4` and `output.mov` to your own file names.
+
+If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the output looks barely touched, the first value (glitch frequency) is probably too low for your clip, so raise it. For a different glitch look, see [random-difference-glitch.sh](random-difference-glitch.sh).
