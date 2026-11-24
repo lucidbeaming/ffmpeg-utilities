@@ -41,3 +41,15 @@ Useful variations:
 - Change `input.mov` and `output.mp4` to your own file names.
 
 If the framing looks off, check the source's shape. The `increase` option scales to *at least* 1728×1080, keeping the aspect ratio. A 16:10 source comes out at exactly 1728×1080, so x=147 centres the window. A 16:9 1920×1080 source stays 1920 wide, so x=147 sits 96 px left of centre. For 16:9 sources, use x=243 to centre the window.
+
+## vertical-canvas-414x736.sh
+
+Use this when you need a short, silent, vertical loop from landscape footage, such as a Spotify Canvas–style clip. It rotates the whole picture a quarter turn instead of cropping it. That suits footage shot with the camera on its side, or a deliberately sideways look. It won't cut an upright portrait out of a normal landscape scene. The header explains each flag.
+
+Easy adaptations:
+
+- Change `-ss 60` and `-t 7.9` to take a different stretch of the source.
+- Use `transpose=1` to rotate clockwise instead.
+- Change `fps=30` or the `414:736` size to suit the destination.
+
+If the picture comes out upside down from what you expected, switch between `transpose=2` and `transpose=1`. If it comes out sideways and the source already played as portrait, ffmpeg probably auto-rotated it from a rotation flag, so the source didn't need this script. Squashed or stretched output means the source isn't 16:9, because `scale` forces the exact size. A short or empty file means the source runs shorter than about 1:08.
