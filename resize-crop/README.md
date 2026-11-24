@@ -29,3 +29,15 @@ Useful edits:
 - Raise or lower `-crf 24` to trade file size for quality.
 
 If the output looks wrong, check these first. Stretched or squeezed playback usually points to the sample aspect ratio. Heads or titles cut off means the subject wasn't centered in the source.
+
+## scale-offset-crop-1434x1080.sh
+
+Use this script to turn 1080p widescreen footage into a near-4:3 frame at full 1080 height, for 4:3 projectors or monitors. You can also place the window off-centre by editing the x offset. The header explains each flag. Audio is dropped, so it suits picture-only material. If you want a standard-definition 4:3 file, use [fill-crop-640x480.sh](fill-crop-640x480.sh) or [fill-crop-720x480.sh](fill-crop-720x480.sh) instead.
+
+Useful variations:
+
+- Change the crop's x value (147) to slide the window left or right. Raising it moves the window right.
+- Change `-r 29.97` to match a different target frame rate.
+- Change `input.mov` and `output.mp4` to your own file names.
+
+If the framing looks off, check the source's shape. The `increase` option scales to *at least* 1728×1080, keeping the aspect ratio. A 16:10 source comes out at exactly 1728×1080, so x=147 centres the window. A 16:9 1920×1080 source stays 1920 wide, so x=147 sits 96 px left of centre. For 16:9 sources, use x=243 to centre the window.
