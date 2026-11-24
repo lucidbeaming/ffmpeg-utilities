@@ -40,3 +40,15 @@ Useful variations:
 - Change `-r 29.97` to match your source or delivery rate.
 
 If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the result is mostly black, the source probably has low contrast or soft focus, which gives Sobel few edges to find.
+
+## frei0r-glitch-vertigo-nervous.sh
+
+Reach for this when you want a hypnotic, unstable look: a swirling feedback tunnel that twitches as frames get shuffled, with only occasional block glitches on top. It suits music visuals, loops and title backgrounds. Skip it when motion needs to read clearly or lip sync matters, because Nervous scrambles the order of recent frames. For a gentler stutter, try [shuffleframes-stutter.sh](shuffleframes-stutter.sh). For edge-based glitching, see [frei0r-glitch-sobel-baltan.sh](frei0r-glitch-sobel-baltan.sh). The header explains each filter.
+
+Variations:
+
+- Change `-r 29.97` to match your source's frame rate.
+- Pass Vertigo's two parameters, phase increment and zoom rate, to change how fast the tunnel spins and zooms.
+- Swap in [frei0r-glitch0r-prores.sh](frei0r-glitch0r-prores.sh) if you only want the block glitching.
+
+If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the glitches seem to be missing, that's expected: the glitch0r values are deliberately rare and small.
