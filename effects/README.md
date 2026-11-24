@@ -75,3 +75,16 @@ Variations from the source:
 - For a 2× slowdown, interpolate to 60 fps and use a single `atempo=0.5`.
 
 If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If sound and picture drift apart, check that the number of `atempo=0.5` stages matches the slowdown. Expect a slow render and an output about four times longer than the input. Blended cuts are intentional. Missing picture at the edges comes from the fill crop.
+
+## frei0r-nervous-slowmo-prores.sh
+
+Reach for this when you want twitchy, out-of-order motion turned into slow, smeared warping, and you plan to keep editing or grading the result. ProRes 422 10-bit holds up better through further processing than a delivery codec. For a smaller file to share directly, use the H.264 counterpart, [frei0r-nervous-slowmo-h264.sh](frei0r-nervous-slowmo-h264.sh). For clean slow motion without the jitter, see [../timing/minterpolate-slowmo-prores.sh](../timing/minterpolate-slowmo-prores.sh). The header explains each flag.
+
+To change the slowdown, edit the minterpolate rate. `fps=60` gives roughly 2× slow motion instead of 4×. If you change the playback rate, change it in both `setpts` and `-r` so they stay matched. The script drops audio, so add any sound in your editor.
+
+If the output looks wrong or the command fails:
+
+- "Could not find module": set `FREI0R_PATH` as the header shows.
+- frei0r isn't recognised at all: your ffmpeg was built without it.
+- Rendering is slow: expect this, because minterpolate is slow.
+- The file is large: expect this from ProRes.
