@@ -15,3 +15,17 @@ If the output looks wrong:
 - The subject is cut off: the crop is always centered, so off-center action is lost.
 - Motion stutters: the source rate didn't divide evenly into 30 fps, so frames were dropped or repeated.
 - You get a filter error: check the commas between the filters. The original batch loop broke because of a missing comma.
+
+## fill-crop-720x480.sh
+
+Use this when you need a silent clip that exactly fills a 720×480 frame, whatever the source's shape, with no letterbox bars. It works the same way as [fill-crop-640x480.sh](fill-crop-640x480.sh), just at the NTSC raster. The header explains each flag.
+
+Don't reach for it when the edges of the picture matter. Anything outside the centered 720×480 window is cut away, and a wide source loses a lot from its sides. It also isn't a DVD or DV encoder as written, because the pixels stay square and the audio is dropped.
+
+Useful edits:
+
+- For true NTSC DV/DVD output, add `setsar=10/11` or use `-target ntsc-dvd`, as the header notes.
+- For a different frame size, change both numbers in `scale` and in `crop` together.
+- Raise or lower `-crf 24` to trade file size for quality.
+
+If the output looks wrong, check these first. Stretched or squeezed playback usually points to the sample aspect ratio. Heads or titles cut off means the subject wasn't centered in the source.
