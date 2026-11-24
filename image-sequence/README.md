@@ -25,3 +25,17 @@ Each image is shown at 3 per second and the output is written at 29.97 fps, so s
 - raise the CRF value for smaller files, or lower it for higher quality
 
 If the output looks wrong, first check that the start number matches a real file. Then make sure there are no gaps in the numbering, since a missing number can end the sequence early. Also check that the digit count in the pattern matches your filenames. If the framing is off, your source isn't 16:9 and the crop removed more than you expected.
+
+## images-to-video-offset-crop.sh
+
+Use this when you have a folder of numbered stills, especially portraits, and want a 1280×720 video framed a little low, so that heads keep their chins rather than their foreheads. It is the starting point the `effects/` chains assume. The header explains each flag.
+
+Skip it for footage that is already 16:9. Those frames scale to exactly 720 px tall, so there is nothing to shift and the 200 px offset does nothing.
+
+Useful edits:
+
+- Change `+200` to move the framing, or delete it for a plain centered crop.
+- Change `1280:720` in both filters for another size. Keep both numbers even.
+- Swap in the source's `-preset ultrafast -crf 40` for quick drafts.
+
+If the framing looks wrong, check how tall the scaled stills are. When the extra height is less than 400 px, the crop gets clamped to the bottom edge. If frames are missing, check that the files match `f%05d.jpg` exactly. Numbering that doesn't start at 1 is covered in [gopro-timelapse-start-number.sh](gopro-timelapse-start-number.sh).
