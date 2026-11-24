@@ -60,3 +60,16 @@ Useful variations:
 - Adjust `-q:a 4` for Vorbis, where 4 is about 128 kb/s.
 
 If the picture looks squashed or stretched, the source wasn't square. If the audio level differs noticeably from the original, that's `loudnorm` working as intended. If ffmpeg reports an unknown encoder, your build lacks libtheora or libvorbis.
+
+## xvid-roundtrip-crush.sh
+
+Use this when you want deliberate generation loss: blocky, smeared early-2000s compression baked into a clip that still plays anywhere as H.264. It is a look, not a conversion. For a clean web file, use `web-mp4-baseline-keep-size.sh` or `remux-faststart.sh` instead. The header explains each flag.
+
+The script runs two passes and leaves the damaged intermediate, `crushed.avi`, on disk. Delete it, or keep it to compare against the final file.
+
+Variations:
+- Change `-r 30` to your source's frame rate so frames aren't dropped or duplicated.
+- Raise `-crf 18` for a smaller final file. The cost is new H.264 damage layered over the Xvid look.
+- Run `output.mp4` back through as the input to compound the loss.
+
+If the result looks wrong, check the resolution and motion first. The 200 kb/s budget is fixed, so the strength of the damage depends on them. A large, busy clip falls apart badly, and a small, static one may barely change. Stuttery motion usually means `-r 30` doesn't match the source.
