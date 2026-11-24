@@ -112,3 +112,17 @@ Useful variations:
 - Change `+200` in the crop to move the window up or down, or set it to `+0` to center it.
 
 If colors shift dramatically, switch to `independence=0`. If the output is blocky, that's the `-crf 40` draft setting; use `-crf 18` for a final render. If ffmpeg finds no input, check that your files match the `frames/f%05d.jpg` pattern.
+
+## random-difference-glitch.sh
+
+Use this when you want footage dissolved into glowing motion edges on black, slowed and smeared by interpolation: music videos, title backgrounds, abstract loops. It works best on clips with plenty of movement. Skip it when the subject needs to stay recognisable, or when picture and sound must stay in sync. The header explains each flag.
+
+Useful variations:
+
+- Change `-ss 21` to start where the action is.
+- Raise or lower `frames=5` to make the shuffle more or less chaotic.
+- Edit `1920:1080` in both `scale` and `crop` for other frame sizes.
+
+If the output is mostly black, the source has too little motion. If it looks like crawling noise, `normalize` is stretching tiny frame-to-frame differences to full contrast. The audio is slowed to 0.25× while the video plays about 0.3× speed, so expect the sound to run past the picture. `minterpolate` is slow, so test on a short clip first.
+
+Related: [sobel-edge-glitch.sh](sobel-edge-glitch.sh), [shuffleframes-stutter.sh](shuffleframes-stutter.sh), [normalize-levels.sh](normalize-levels.sh), [../timing/minterpolate-slowmo-with-audio.sh](../timing/minterpolate-slowmo-with-audio.sh).
