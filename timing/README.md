@@ -49,3 +49,16 @@ Variations:
 If the output looks wrong, check these:
 
 An error at the crop step usually means the input is smaller than 640×480. Warped frames around fast motion come from interpolation. Smeared frames at hard cuts happen because scene-change detection is off (`scd=none`), so cuts get blended. To see how interpolation choices compare, try [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh).
+
+## minterpolate-raise-fps.sh
+
+Reach for this when you want 30 fps footage to play back as smooth 120 fps motion at its original speed. Typical uses are a high-frame-rate edit, or a clean look at how well interpolation holds up on your material. The header explains each flag. Skip it when you want the clip slowed down: use [minterpolate-slowmo-prores.sh](minterpolate-slowmo-prores.sh) instead. Also skip it when the "smooth motion" TV look would be unwelcome, such as on footage meant to feel filmic.
+
+The main variation is the target rate. Change `fps=120` to `60` for a lighter file and a faster render, and change `input.mov` and `output.mp4` to suit. To compare interpolation approaches side by side, see [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh).
+
+If the output looks wrong:
+
+- Warping or smearing around fast-moving or overlapping objects is typical of synthesized frames. Try a cleaner source, or accept a lower target rate.
+- No sound is expected, because the script drops audio.
+- If motion doesn't look smoother, your player or display may not show 120 fps. Check the file's frame rate rather than trusting playback.
+- Very slow renders are normal for this filter.
