@@ -28,3 +28,21 @@ Variations:
 - Raise `-crf` for smaller files, or lower it for higher quality.
 
 If the encode fails or a player rejects the file, first check that the source is no larger than 1080p. Then check that its width and height are even numbers, which 4:2:0 output requires.
+
+## web-mp4-square-600.sh
+
+Use this when you need a small square clip that plays almost anywhere, such as an embedded preview, a thumbnail video or a social-style tile. It favours compatibility and consistent volume over quality. The header explains each flag.
+
+Don't use it for non-square footage you care about. `scale=600:600` stretches the picture instead of cropping it, so crop first with one of the scripts in the `resize-crop/` theme, or keep the original dimensions with [web-mp4-baseline-keep-size.sh](web-mp4-baseline-keep-size.sh).
+
+Useful variations:
+
+- Change both `600` values for a different square size.
+- Lower `-crf 20` for better quality and bigger files, or raise it for smaller ones.
+- Change `-ac 1` to `-ac 2` to keep stereo.
+
+If the output looks wrong:
+
+- Squashed or stretched picture: the source wasn't square.
+- Volume differs from the original: this is `loudnorm` working as intended, and it is a single pass.
+- Playback waits for the full download: check that `-movflags +faststart` survived your edits.
