@@ -15,3 +15,16 @@ If the output looks wrong:
 - ffmpeg stops with an error about a codec or tag: one of the streams can't go into an MP4 container as-is, so it needs a re-encode.
 - The file plays locally but not in the browser: the source codecs aren't web-friendly.
 - An extra audio track or subtitle stream is missing: by default ffmpeg keeps one stream of each type, not every stream.
+
+## web-mp4-baseline-keep-size.sh
+
+Reach for this when a clip is already the size you want on the page but its encoding won't play everywhere, such as an iPhone HEVC clip or a ProRes export. It re-encodes video and audio and leaves the frame size alone. The header explains each flag.
+
+Skip it if the encoding is already fine and only faststart is missing; [remux-faststart.sh](remux-faststart.sh) handles that case. If the frame size also needs to change, use [web-mp4-square-600.sh](web-mp4-square-600.sh) or [fill-crop-640x480.sh](../resize-crop/fill-crop-640x480.sh). Level 4.1 only goes up to 1080p, so resize anything larger first.
+
+Variations:
+- For sources at 720p or smaller, use `-level:v 3.1`, as the original note did.
+- Use the note's square variant: `scale=720:720` with `-crf 23` and `-c:a copy` to keep the original audio.
+- Raise `-crf` for smaller files, or lower it for higher quality.
+
+If the encode fails or a player rejects the file, first check that the source is no larger than 1080p. Then check that its width and height are even numbers, which 4:2:0 output requires.
