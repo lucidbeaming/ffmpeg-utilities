@@ -34,3 +34,14 @@ Useful edits:
 - Swap `input.aiff` and `output.mp4` for your own file names.
 
 If ffmpeg refuses to build the filter graph, check that both `aphasemeter` outputs are still labeled `[a][pv]` and that `format=` reads from `[pv]`. Chaining `format=` straight onto `aphasemeter` is the failure the header's "Changed" note describes. If the MP4 won't play in some players, make sure the `format=yuv420p` step is still in the chain.
+
+## avectorscope-polar.sh
+
+Use this when you want the stereo field drawn as a continuous trace rather than the dot cloud of [avectorscope.sh](avectorscope.sh). The polar fan reads like a hardware goniometer, which makes it a good stereo-image check you can watch alongside the music. The Lissajous version is more decorative: tones trace looping figures that suit visualizer videos. Skip both for mono sources, since identical channels collapse to a single line. For a dedicated phase readout, see [aphasemeter.sh](aphasemeter.sh).
+
+The script renders both styles in one run. Delete the command you don't need, and change `input.aiff`, the output names or `size=1280x720` to fit your project. The header explains each flag. Don't pass several files with a glob; use [../batch/render-visualizer-set.sh](../batch/render-visualizer-set.sh) instead.
+
+If the output looks wrong:
+
+- A tiny trace huddled in the centre means the zoom is too low for quiet material, so raise it.
+- A trace that floods the frame or runs off the edges means the zoom is too high for loud material, so lower it.
