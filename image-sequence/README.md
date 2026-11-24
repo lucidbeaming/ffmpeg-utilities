@@ -39,3 +39,16 @@ Useful edits:
 - Swap in the source's `-preset ultrafast -crf 40` for quick drafts.
 
 If the framing looks wrong, check how tall the scaled stills are. When the extra height is less than 400 px, the crop gets clamped to the bottom edge. If frames are missing, check that the files match `f%05d.jpg` exactly. Numbering that doesn't start at 1 is covered in [gopro-timelapse-start-number.sh](gopro-timelapse-start-number.sh).
+
+## svg-frames-to-prores4444-alpha.sh
+
+Use this when an overlay exists as numbered SVG frames, from [primitive](../related-tools/primitive-png-to-svg.sh) or a vector tool, and an editor needs it as a movie with real transparency. If you don't need alpha, ProRes 4444 makes very large files for no benefit. The header explains each flag.
+
+Common changes:
+
+- Set `-framerate 15` to the rate the animation was drawn at, and `-r 29.97` to your project's rate.
+- Change `1920:1080` in both the scale and the crop to match your timeline.
+- Raise `-density 96` if frames look soft after scaling up.
+- With an ffmpeg built with librsvg, skip the ImageMagick loop and read `%05d.svg` directly.
+
+If the background comes out black or opaque, open a few files in `png/` and check that they are transparent. If ffmpeg finds no input, check that the SVGs are named `00001.svg`, `00002.svg` and so on. If edges are missing, your frames aren't 16:9. The crop fills the frame by trimming whatever overhangs.
