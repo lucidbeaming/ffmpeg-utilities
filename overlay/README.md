@@ -15,3 +15,17 @@ If the output looks wrong:
 - **The graphic is clipped or off-center.** The PNG isn't resized, so make it 640×480 or smaller.
 - **A solid block covers the picture.** The PNG has no transparency.
 - **Subjects are cut off at the sides.** That's the crop. Reframe the source first.
+
+## center-png-overlay-square.sh
+
+Use this when you need a square clip with a logo or watermark sitting exactly in the middle. It fills a 720×720 frame from the video, cropping whatever doesn't fit, and lays the PNG over it at the PNG's own size. The header explains each flag.
+
+Don't use it if you need to keep the whole frame, because wider or taller footage loses its edges to the crop. For 4:3 output, use [center-png-overlay-4x3.sh](center-png-overlay-4x3.sh). To take a logo out rather than add one, see [remove-logo-delogo.sh](remove-logo-delogo.sh).
+
+Variations:
+
+- **Different size:** change all four 720s together.
+- **Light and dark versions:** run it twice, once with a white PNG and once with a black one, using a different output name each time.
+- **Video already the right size:** the header's minimal form skips the scale and crop.
+
+If the output looks wrong, check the PNG first. The logo isn't scaled, so one larger than 720×720 runs off the edges. A PNG without transparency shows up as a solid box.
