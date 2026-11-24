@@ -138,3 +138,22 @@ Useful variations:
 - Switch `-crf 40` to `-crf 18` for a final render.
 
 If the output looks wrong, first check that `frames/f%05d.jpg` matches your actual file names. If the subject is cut off, adjust the `+200` crop offset or the `1280:720` size. If motion seems to skip between cycles, that is the map at work. It has 58 entries but only uses frames 0–29 of each group.
+
+## sobel-edge-glitch.sh
+
+Use this when you want footage turned into a jittery, warped line drawing: dark motion outlines on white, with a stutter that keeps snapping back to the first frame. It works on a numbered JPEG sequence, and the header explains each flag. It is a poor fit if you need audio, since `-an` drops it, or if frei0r isn't installed.
+
+To understand or adapt the look, drop stages from the front of the chain one at a time, as the header suggests. For a step-by-step build of the stutter stage on its own, see [shuffleframes-stutter.sh](shuffleframes-stutter.sh).
+
+Other useful changes:
+
+- Change `1280:720`, the `+200` crop offset, or `-framerate 29.97` to suit your source.
+- Raise or lower the distort0r amplitude (`0.02`) for more or less warp.
+- Switch `-crf 40` to `-crf 18` for a final render.
+
+If the output looks wrong, check these first:
+
+- **"Could not find module":** set `FREI0R_PATH` as the header describes.
+- **Mostly blank white frames:** expected with static footage, because `tblend` keeps only what changed.
+- **Blocky output:** that is the draft CRF.
+- **Bad framing:** check that the `+200` offset suits your shot.
