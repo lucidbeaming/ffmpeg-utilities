@@ -100,3 +100,15 @@ Useful variations:
 - Change `-r 29.97` to match your playback system.
 
 If ffmpeg reports "Could not find module", set `FREI0R_PATH` as the header shows. If the crop step fails, the input is smaller than 1024×768. Scale it up first or pick a smaller crop. If the frame is mostly black, the source probably lacks contrast, so there are few edges to find.
+
+## normalize-levels.sh
+
+Reach for this when an image sequence looks flat, washed out or tinted, and you want a quick auto-levels pass while turning it into a 1280×720 preview video. Because normalize works over a rolling window of frames, it adapts as the footage changes. That makes it a poor fit when exposure has already been graded, or when you need levels to stay fixed for the whole clip. The header explains each flag.
+
+Useful variations:
+
+- Set `independence=0` to stretch all channels together and keep the original hues.
+- Change `-framerate 29.97` to match how the frames were shot, and change or remove `-t 10` to render more of the sequence.
+- Change `+200` in the crop to move the window up or down, or set it to `+0` to center it.
+
+If colors shift dramatically, switch to `independence=0`. If the output is blocky, that's the `-crf 40` draft setting; use `-crf 18` for a final render. If ffmpeg finds no input, check that your files match the `frames/f%05d.jpg` pattern.
