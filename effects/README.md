@@ -126,3 +126,15 @@ Useful variations:
 If the output is mostly black, the source has too little motion. If it looks like crawling noise, `normalize` is stretching tiny frame-to-frame differences to full contrast. The audio is slowed to 0.25× while the video plays about 0.3× speed, so expect the sound to run past the picture. `minterpolate` is slow, so test on a short clip first.
 
 Related: [sobel-edge-glitch.sh](sobel-edge-glitch.sh), [shuffleframes-stutter.sh](shuffleframes-stutter.sh), [normalize-levels.sh](normalize-levels.sh), [../timing/minterpolate-slowmo-with-audio.sh](../timing/minterpolate-slowmo-with-audio.sh).
+
+## shuffleframes-stutter.sh
+
+Use this when you want a hard, rhythmic strobe: the picture keeps snapping back to one anchor frame while the action moves forward underneath it. It works best on footage with clear motion, so the jumps read as a stutter rather than as flicker. It is not the right choice for smooth slow motion or for a gentle loop. The header explains each flag.
+
+Useful variations:
+
+- Shorten the map to `0 1 0 2 … 0 8` for a faster, tighter cycle. The header suggests this.
+- Change `-t 10` for a longer or shorter clip, and change `-framerate 29.97` to match your source.
+- Switch `-crf 40` to `-crf 18` for a final render.
+
+If the output looks wrong, first check that `frames/f%05d.jpg` matches your actual file names. If the subject is cut off, adjust the `+200` crop offset or the `1280:720` size. If motion seems to skip between cycles, that is the map at work. It has 58 entries but only uses frames 0–29 of each group.
