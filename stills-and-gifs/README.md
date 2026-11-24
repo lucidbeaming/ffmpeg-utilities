@@ -15,3 +15,17 @@ Common edits:
 - Raise `-q:v` toward 31 for smaller, lower-quality files.
 
 If faces or shapes look squashed, the source isn't square; fix the scale size. If the JPEG looks blocky, check that `-q:v` is still 2. If you're adapting an older copy that used `-t 1 -f image2`, switch to `-frames:v 1` as described in the header.
+
+## palette-gif.sh
+
+Use this when you want a GIF from part of a video and care about colour quality. It builds a palette from the exact frames it renders, so gradients and skin tones band far less than with ffmpeg's default palette. The header explains each flag. As written, it makes a slideshow-style GIF of about 10 frames from 0:05 to 0:25 of the source.
+
+For a single still, use [extract-frame-jpg.sh](extract-frame-jpg.sh) instead. GIF also carries no audio.
+
+To adapt it, change the `-ss` and `-t` values to pick a different span. Raise `fps=0.5` for real motion, but expect a larger file. The GIF keeps the source's frame size, so a large source gives a large file.
+
+If the output looks wrong:
+
+- **Banding or off colours:** make sure both `palettegen` and `paletteuse` are still in the filtergraph. Also remember that every frame shares one 256-colour palette, so a span with very different scenes will look worse than a single scene.
+- **Too few frames or a short GIF:** check that `-ss` plus `-t` fits inside the source's length.
+- **Choppy motion:** raise the fps.
