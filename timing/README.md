@@ -62,3 +62,19 @@ If the output looks wrong:
 - No sound is expected, because the script drops audio.
 - If motion doesn't look smoother, your player or display may not show 120 fps. Check the file's frame rate rather than trusting playback.
 - Very slow renders are normal for this filter.
+
+## minterpolate-slowmo-prores.sh
+
+Reach for this when you have ordinary ~30 fps footage and want a smooth 4× slowdown without the stutter of repeated frames. It writes ProRes 422, so the result is ready to bring into an editor. The header explains each flag.
+
+Skip it when the shot is full of fast or crossing motion and you need clean frames. Interpolation will warp those areas, and that is part of the look rather than a bug. Also skip it when you need sound: this version drops audio, so use [minterpolate-slowmo-with-audio.sh](minterpolate-slowmo-with-audio.sh) instead. For much stronger slowdowns, see [extreme-slowmo-12x.sh](extreme-slowmo-12x.sh).
+
+To change the slowdown, set `fps` to the source rate times the factor:
+
+- `fps=60` gives 2× from 30 fps footage.
+- `fps=240` gives 8× from 30 fps footage.
+- `fps=100` gives 4× from 25 fps footage.
+
+Leave the 29.97 values alone. They set the playback rate, not the slowdown.
+
+If the result isn't about four times the source duration, the source probably isn't ~30 fps, so recompute `fps`. If the motion looks odd, compare interpolation modes with [minterpolate-mode-comparison.sh](minterpolate-mode-comparison.sh). Expect slow renders and large files.
